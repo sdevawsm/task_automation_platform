@@ -13,7 +13,15 @@ Task Automation Platform é uma aplicação escalável desenvolvida em PHP que o
 - **Relatórios e Análises**: Geração de relatórios customizados
 - **Gerenciamento de Usuários**: Autenticação, perfis e controle de acesso
 
-## 🚀 Tecnologias
+## �️ Visualização
+
+Confira abaixo duas imagens de exemplo da interface:
+
+![Preview 1](public/images/readme1.png)
+
+![Preview 2](public/images/readme2.png)
+
+## �🚀 Tecnologias
 
 - **Backend**: PHP 7.4+
 - **Banco de Dados**: MariaDB 11.4.7
