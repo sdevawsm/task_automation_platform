@@ -17,9 +17,13 @@ Task Automation Platform é uma aplicação escalável desenvolvida em PHP que o
 
 Confira abaixo duas imagens de exemplo da interface:
 
-![Preview 1](public/images/readme1.png)
+![Preview 1](public/images/readme3.png)
 
 ![Preview 2](public/images/readme2.png)
+
+![Preview 1](public/images/readme1.png)
+
+
 
 ## �🚀 Tecnologias
 
