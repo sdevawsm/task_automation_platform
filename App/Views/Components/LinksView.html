@@ -1,0 +1,270 @@
+<!-- links -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px">
+		<h6>LINKS EXTERNOS</h6>
+		<img src="/public/images/arrows-angle-expand.svg" onclick="rezisize(this.parentElement)">
+	</nav>
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+					<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+				</svg>
+				Cadastrar grupo de link
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm" placeholder="ERP">Rótulo</span>
+								<input type="text" class="form-control link_label" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+						</div>
+					</div><!--row-->
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+
+			<div class="wdg_card_btn_util mt-3">
+				<div class="input-group input-group-sm mb-3">
+					<button class="btn btn-outline-secondary" type="button" onclick="setLink(this)">Salvar modelo</button>
+				</div>
+			</div>
+		</div>
+
+	</div><!--End wdg_card-->
+
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6 >
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link" viewBox="0 0 16 16">
+					<path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
+					<path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
+				  </svg>
+				Cadastrar link
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm" placeholder="ERP">Rótulo</span>
+								<input type="text" class="form-control link_label" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm">url</span>
+								<input type="text" class="form-control link_url" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+
+						</div>
+
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Novo grupo</span>
+							<input type="text" class="form-control link_url_group" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="d-flex align-items-center">
+								<div onclick="checkBtn(this), enableCheckbox(this, '.g_1')" class="card_btn mx-1">
+									<span class="card_btn_span"></span>
+									<input type="checkbox" class="g_1 hide_element" name="g_1"  >
+								</div>
+								<label for="g_1">Chat</label>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="d-flex align-items-center">
+								<div onclick="checkBtn(this), enableCheckbox(this, '.g_2')" class="card_btn mx-1">
+									<span class="card_btn_span"></span>
+									<input type="checkbox" class="g_2 hide_element" name="g_2"  >
+
+								</div>
+								<label>Telefone</label>
+							</div>
+						</div>
+
+						
+					</div><!--row-->
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+
+			<div class="wdg_card_btn_util mt-3">
+				<div class="input-group input-group-sm mb-3">
+					<button class="btn btn-outline-secondary" type="button" onclick="setLink(this)">Salvar modelo</button>
+				</div>
+			</div>
+		</div>
+
+	</div><!--End wdg_card-->
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+					<path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+					<path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+				  </svg>
+				Exibir links externos
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), getLinks(this) " xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="d-flex flex-wrap links_conteiner">  
+					</div><!--row-->
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+			
+
+			<div class="wdg_card_btn_util">
+				<div class="input-group input-group-sm mb-3  links_btn_groups">
+					<!-- <button class="btn btn-outline-secondary" type="button">Chat</button>
+					<button class="btn btn-outline-secondary" type="button">Telefone</button> -->
+				</div>
+			</div>
+
+		</div>
+
+	</div><!--End wdg_card-->
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+					<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+				</svg>
+				Link de pesquisa na barra de navegação
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm" placeholder="ERP">Rótulo</span>
+								<input type="text" class="form-control link_label" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm">url</span>
+								<input type="text" class="form-control link_url" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+
+						</div>
+
+						<div class="input-group input-group-sm mb-3">
+							<span class="input-group-text" id="inputGroup-sizing-sm">Novo grupo</span>
+							<input type="text" class="form-control link_url_group" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="d-flex align-items-center">
+								<div onclick="checkBtn(this), enableCheckbox(this, '.g_1')" class="card_btn mx-1">
+									<span class="card_btn_span"></span>
+									<input type="checkbox" class="g_1 hide_element" name="g_1"  >
+								</div>
+								<label for="g_1">Chat</label>
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="d-flex align-items-center">
+								<div onclick="checkBtn(this), enableCheckbox(this, '.g_2')" class="card_btn mx-1">
+									<span class="card_btn_span"></span>
+									<input type="checkbox" class="g_2 hide_element" name="g_2"  >
+
+								</div>
+								<label>Telefone</label>
+							</div>
+						</div>
+
+						
+					</div><!--row-->
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+
+			<div class="wdg_card_btn_util mt-3">
+				<div class="input-group input-group-sm mb-3">
+					<button class="btn btn-outline-secondary" type="button" onclick="setLink(this)">Salvar modelo</button>
+				</div>
+			</div>
+		</div>
+
+	</div><!--End wdg_card-->
+
+</div><!--End wdg content--->

@@ -1,0 +1,91 @@
+name: 🚀 Deploy website on push
+
+on:
+  push:
+    branches:
+      - main
+      - pro
+
+jobs:
+  web-deploy:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+
+      # Deploy para servidores 1 a 4 (somente se for a branch main)
+      - name: 📂 Sync files to Server 1
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_1 }}
+          username: ${{ secrets.ftp_user_1 }}
+          password: ${{ secrets.ftp_pass_1 }}
+          server-dir: /htdocs/
+
+      - name: 📂 Sync files to Server 2
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_2 }}
+          username: ${{ secrets.ftp_user_2 }}
+          password: ${{ secrets.ftp_pass_2 }}
+          server-dir: /htdocs/
+
+      - name: 📂 Sync files to Server 3
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_3 }}
+          username: ${{ secrets.ftp_user_3 }}
+          password: ${{ secrets.ftp_pass_3 }}
+          server-dir: /htdocs/
+      
+      - name: 📂 Sync files to Server 4
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_4 }}
+          username: ${{ secrets.ftp_user_4 }}
+          password: ${{ secrets.ftp_pass_4 }}
+          server-dir: /htdocs/
+      
+      - name: 📂 Sync files to Server 5
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_5 }}
+          username: ${{ secrets.ftp_user_5 }}
+          password: ${{ secrets.ftp_pass_5 }}
+          server-dir: /htdocs/
+      
+      - name: 📂 Sync files to Server 6
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_6 }}
+          username: ${{ secrets.ftp_user_6 }}
+          password: ${{ secrets.ftp_pass_6 }}
+          server-dir: /htdocs/
+      
+      - name: 📂 Sync files to Server 7
+        if: github.ref == 'refs/heads/main'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_7 }}
+          username: ${{ secrets.ftp_user_7 }}
+          password: ${{ secrets.ftp_pass_7 }}
+          server-dir: /htdocs/
+
+
+
+      # Deploy para servidor PRO (somente se for a branch pro)
+      - name: 📂 Sync files to Server PRO
+        if: github.ref == 'refs/heads/pro'
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        with:
+          server: ${{ secrets.ftp_host_pro }}
+          username: ${{ secrets.ftp_user_pro }}
+          password: ${{ secrets.ftp_pass_pro }}
+          server-dir: /htdocs/

@@ -1,0 +1,40 @@
+
+
+<!--
+<div class="row g-3 cont-acc">
+  <label for="" class="show-error"></label>
+    <label for="">Insira sua chave de ativação</label>
+    <div class="col-auto">
+      <label for="inputKey" class="visually-hidden">Password</label>
+      <textarea type="text" class="form-control" id="inputKey" placeholder="Chave de ativação"></textarea>
+    </div>
+    <div class="col-auto">
+      <button type="submit" class="btn btn-primary mb-3" onclick="activateAccount(event)">Aplicar</button>
+    </div>
+</div>
+
+
+-->
+
+
+<main class="form-signin w-100 m-auto cont-acc h-100 d-flex justity-content-center align-items-center" style="min-height: 100vh;">
+  <div class="show-error">
+    <div class="col mx-auto text-center">
+      <img class="mb-4 rounded-circle hide_element double-check-img" src="public/images/double-check.png" alt="" width="150">
+      <h1 class="h3 mb-3 fw-normal show_status">Insira sua chave de ativação</h1>
+      <span class="show-error" style="color: rgb(243, 86, 86);"></span>
+    </div>
+
+
+    <div class="form-floating my-3">
+      <textarea type="password" class="form-control" id="inputKey" ></textarea>
+    </div>
+
+    <button class="btn btn-primary w-100 py-2 btn_activate" type="submit" onclick="activateAccount(event)">Aplicar</button>
+    <a class="btn btn-success w-100 py-2 hide_element btn_to_home" href="/home" >Ir para home</a>
+  </div>
+</main>
+
+
+
+

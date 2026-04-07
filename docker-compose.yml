@@ -1,0 +1,77 @@
+version: '3.8'
+
+services:
+  # Aplicação PHP com Apache
+  app:
+    build: .
+    container_name: response_builder_app
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./logs:/var/www/html/logs
+    depends_on:
+      - mariadb
+    environment:
+      - DB_HOST=mariadb
+      - DB_NAME=${DB_NAME:-response_builder}
+      - DB_USER=${DB_USER:-root}
+      - DB_PASSWORD=${DB_PASSWORD:-}
+      - DB_HOST_DOCKER=mariadb
+      - DB_NAME_DOCKER=${DB_NAME_DOCKER}
+      - DB_USER_DOCKER=${DB_USER_DOCKER}
+      - DB_PASSWORD_DOCKER=${DB_PASSWORD_DOCKER}
+      - GMAIL_USER=${GMAIL_USER}
+      - GMAIL_PASSWORD=${GMAIL_PASSWORD}
+    networks:
+      - app-network
+
+  # MariaDB 11.4.7
+  mariadb:
+    image: mariadb:11.4.7
+    container_name: response_builder_mariadb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
+      MYSQL_DATABASE: ${DB_NAME:-response_builder}
+      MYSQL_USER: ${DB_APP_USER:-app_user}
+      MYSQL_PASSWORD: ${DB_APP_PASSWORD:-}
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./docker/mariadb/init:/docker-entrypoint-initdb.d
+      - ./docker/mariadb/conf:/etc/mysql/conf.d
+    networks:
+      - app-network
+
+  # phpMyAdmin para gerenciamento do banco (opcional)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: response_builder_phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: mariadb
+      PMA_PORT: 3306
+      PMA_USER: ${DB_USER:-root}
+      PMA_PASSWORD: ${DB_PASSWORD:-}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-}
+      UPLOAD_LIMIT: 50M
+      POST_MAX_SIZE: 50M
+      MAX_EXECUTION_TIME: 300
+      MEMORY_LIMIT: 256M
+      PMA_ARBITRARY: 1
+      PMA_ABSOLUTE_URI: http://localhost:8081/
+    depends_on:
+      - mariadb
+    networks:
+      - app-network
+
+volumes:
+  mariadb_data:
+
+networks:
+  app-network:
+    driver: bridge

@@ -1,0 +1,1049 @@
+<style>
+    .div-editable:focus {
+        outline-width: 1px;
+        outline-style: dashed;
+        outline-color: rgb(125, 98, 224);
+    }
+</style>
+
+
+<div class="menu">
+    <ul>
+        <li onclick="enable_card_visibility('user_settings', this)"  class="btn-fluent-primary">Adicionar usuário</li>
+        <li onclick="enable_card_visibility('keys_settings', this)" class="btn-fluent-primary">Chaves de ativação</li>
+        <li onclick="enable_card_visibility('send_mail', this)" class="btn-fluent-primary">Envio de e-mail</li>
+        <li onclick="enable_card_visibility('script_models', this)" class="btn-fluent-primary">Modelos de script</li>
+        <li onclick="enable_card_visibility('all_notifications', this)" class="btn-fluent-primary">Notificações</li>
+		<li onclick="enable_card_visibility('send_images', this)" class="btn-fluent-primary">Envio de imagens</li>
+    </ul>
+</div>   
+
+<style>
+    .menu {
+        text-align: center;
+        margin: 20px;
+    }
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .menu li {
+        display: inline-block;
+        margin: 0 15px;
+        cursor: pointer;
+        margin: 5px;
+    }
+</style>
+
+
+
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start wdg_window_100 user_settings hide_element">
+    <nav class="d-flex justify-content-between align-items-center">
+        <img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+        <h6 id="archor_text_editor">ADICIONAR USUÁRIO</h6>
+        <div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+    </nav>
+
+    <div class="wdg_card "> <!--Card-->
+        <header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+            <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+            <h6>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+                    <path
+                        d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z" />
+                </svg>
+                Cadastre um novo usuário aqui
+            </h6>
+            </h6>
+            <div class="d-flex window_behavior justify-content-end">
+                <svg onclick="HideElement(this.parentElement.parentElement.parentElement)"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+                </svg>
+
+                <!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+            </div>
+        </header>
+
+        <div class="showContent hide_element" style="height: 820px;;">
+            <div class="row cont-new-user" style="box-sizing: border-box !important; padding: 5px;">
+                <div class="col-md-6 mt-3">
+                    <!--Nome-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text " id="inputGroup-sizing-sm">Nome</span>
+                        <input type="text" class="form-control name" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <!--E-mail-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">E-mail</span>
+                        <input type="mail" class="form-control mail" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <!--Tipo de usuário-->
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="">Tipo</label>
+                        <select class="form-select" id="name_type">
+                            <option value="user" selected>user</option>
+                            <option value="admin">admin</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mt-3">
+                    <!--Senha-->
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Senha</span>
+                        <input type="text" class="form-control pass" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">Usuário</span>
+                        <input type="text" class="form-control user" aria-label="Sizing example input"
+                            aria-describedby="inputGroup-sizing-sm">
+                    </div>
+
+                </div>
+
+                <div class="px-3">
+                    <button type="button" class="btn btn-danger ml-0">
+                        Limpar campos
+                    </button>
+
+                    <button type="button" class="btn btn-primary ml-0" onclick="setUsers(event)">
+                        Salvar usuário 2
+                    </button>
+
+                    <hr>
+                </div>
+
+                <div style="overflow-x: hidden; width: 100%; ">
+                    <label for="" class="mb-3">Usuários cadastrados</label>
+                    <button type="button" class="btn btn-primary btn-sm ml-0" onclick="getUsers(event)">
+                        Buscar usuários
+                    </button>
+
+                    <table class="table_users bg-white" style="width: calc(100% - 10px); color: rgb(33, 37, 41)">
+                        <thead class="overflow-auto">
+                            <tr class="d-flex flex-row">
+                                <th class="col" scope="col">E-mail</th>
+                                <th class="col" scope="col">Usuário</th>
+                                <th class="col" scope="col">Status</th>
+                            </tr>
+                        </thead>                    
+                        <tbody class="row overflow-y-auto" style="max-height: 400px; padding: 10px;">
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="wdg_card "> <!--cores-->
+        <header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+            <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+            <h6>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+                    <path
+                        d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z" />
+                </svg>
+                Logs
+            </h6>
+            </h6>
+            <div class="d-flex window_behavior justify-content-end">
+                <svg onclick="HideElement(this.parentElement.parentElement.parentElement)"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+                </svg>
+
+                <!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+            </div>
+        </header>
+
+        <div class="showContent hide_element">
+            <div style="overflow-x: hidden; width: 100%; ">
+                <input type="number" class="offset" value="0">
+                <button type="button" class="btn btn-primary btn-sm ml-0" onclick="getLogs(event)">
+                    Buscar logs de acesso
+                </button>
+                <br><br>
+
+                <table class="table_logs bg-white" style="width: calc(100% - 10px); color: rgb(33, 37, 41)">
+                    <thead class="overflow-auto">
+                        <tr class="d-flex flex-row">
+
+                            <th class="col" scope="col">Data</th>
+                            <th class="col" scope="col">Hora</th>
+                            <th class="col" scope="col">Ação</th>
+                            <th class="col" scope="col">Usuário</th>
+                        </tr>
+                    </thead>                    
+                    <tbody class="row overflow-y-auto" style="max-height: 400px; padding: 10px;">
+                    </tbody>
+                </table>
+
+            </div>
+            
+        </div>
+    </div>
+
+</div>
+
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start keys_settings hide_element">
+    <nav class="d-flex justify-content-between align-items-center">
+        <img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+        <h6 id="archor_text_editor">GERAR CHAVES DE ATIVAÇÃO</h6>
+        <div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+    </nav>
+
+    <div class="wdg_card "> <!--Card-->
+        <header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+            <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+            <h6>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                    class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+                    <path
+                        d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z" />
+                </svg>
+                Crie uma chave de ativação aqui
+            </h6>
+            </h6>
+            <div class="d-flex window_behavior justify-content-end">
+                <svg onclick="HideElement(this.parentElement.parentElement.parentElement)"
+                    xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+                </svg>
+
+                <!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+            </div>
+        </header>
+
+        <div class="showContent hide_element">
+            <div class="row rowKeys">
+                <div class="col-md-6 mt-3">
+                    <!--Data de expiração -->
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="">Conta ativa por</label>
+                        <select class="form-select" id="final_activation_date">
+                            <option value="+5 days" >5 dias</option>
+                            <option value="+15 days">15 dias</option>
+                            <option value="+30 days">30 dias</option>
+                            <option value="+90 days">90 dias</option>
+                            <option value="+1 year" selected>1 ano</option>
+                           
+                        </select>
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="">Selo de verificação</label>
+                        <select class="form-select" id="verification_seal">
+                            <option value="none" selected>Nenhum</option>
+                            <option value="green">Verde</option>
+							<option value="blue">Azul</option>
+							<option value="golden">Dourado</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="col-md-6 mt-3">
+                    <!--Quantidade -->
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="">Expira em</label>
+                        <select class="form-select" id="expirationAt">
+                            <option value="+30 minutes" >30 minutos</option>
+                            <option value="+60 minutes">60 minutos</option>
+                            <option value="+1 day">1 dia</option>
+                            <option value="+3 days" selected>3 dias</option>
+                        </select>
+                    </div>
+
+                    <!--Expira em -->
+                    <div class="input-group input-group-sm mb-3">
+                        <label class="input-group-text" for="">Quantidade de chaves</label>
+                        <select class="form-select" id="numberOfKeys">
+                            <option value="1" selected>01 chave</option>
+                            <option value="05">05 chaves</option>
+                            <option value="10">10 chaves</option>
+                            <option value="20">20 chaves</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="px-3">
+                    <button type="button" class="btn btn-primary ml-0" onclick="generateKeysForActivate(event)">
+                        Criar chaves
+                    </button>
+
+                    <hr>
+                </div>
+
+                <div>
+                    <label for="" class="mb-3">Chaves novas</label>
+
+                    <table class="table bg-white" class="w-100">
+                        <thead>
+                            <tr >
+                                <th scope="col">Chave</th>
+                            </tr>
+                        </thead>
+                        <tbody  style="display:block; max-height: 480px !important; overflow: auto !important;">
+                            <tr  style="display:block; width: 100% !important;">
+                                <td class="border-top" style="display:block; width: 100% !important;">
+                                    <div class="input-group mb-3 w-100" style="display:block; width: 100% !important;">
+                                        <div class="btn-group" style="width: 100% !important;">
+                                            <button type="button" class="btn btn-outline-secondary"  onclick="copyKey(this)">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-copy" viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                                                  </svg>
+                                                <span class="visually-hidden">Button</span>
+                                            </button>
+                                            <input type="text" style="width: 100%;  display: block;" readonly value="dbfsahfksdhfgkdshfgkdhsgdhgkjhkj">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start send_images hide_element">
+    <nav class="d-flex justify-content-between align-items-center">
+        <img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+        <h6 id="archor_text_editor">ENVIO DE IMAGENS</h6>
+        <div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+		  </div>
+		</div>
+    </nav>
+
+    <div class="wdg_card"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+					class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+					<path
+						d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z" />
+				</svg>
+				ENVIO DE IMAGENS
+			</h6>
+		</header>
+	
+		<div class="showContent">
+			<div class="row" style="max-height: none !important;">
+				<div class="input-group mb-3">
+					<label class="input-group-text" for="send_image_misc_file">Upload</label>
+					<input type="file" class="form-control" id="send_image_misc_file">
+				</div>
+
+				<style>
+					.container-image-misc {
+						width: calc(100% - 35px);
+						height: 200px;
+						display: block;
+						border: solid 1px gray;
+						margin-bottom: 30px;
+					}
+				</style>
+
+				<div class="input-group mx-3 container-image-misc">
+
+				</div>
+	
+				<!-- Botão Enviar -->
+				<div class="mb-3">
+					
+					<button type="button" class="btn btn-outline-secondary" onclick="refreshImagesMisc()">
+						<i class="bi bi-arrow-clockwise"></i> Atualizar Lista
+					</button>
+ 
+					<button class="btn btn-primary btn-send-mail" onclick="send_image_misc(event)">Enviar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+</div>
+
+
+
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start send_mail hide_element">
+    <nav class="d-flex justify-content-between align-items-center">
+        <img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+        <h6 id="archor_text_editor">ENVIO DE E-MAIL</h6>
+        <div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+    </nav>
+
+    <div class="wdg_card"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+					class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+					<path
+						d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z" />
+				</svg>
+				Envio de e-mail
+			</h6>
+		</header>
+	
+		<div class="showContent">
+			<form class="row" style="max-height: none !important;">
+				<!-- Campo Para -->
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text" id="inputGroup-sizing-sm">Para:</span>
+					<input type="email" class="form-control" id="destinatario" name="destinatario" 
+						aria-label="Para" aria-describedby="inputGroup-sizing-sm" required oninput="suggestEmails(this)" 
+						list="emailSuggestions">
+					<div class="invalid-feedback">Por favor, insira um e-mail válido.</div>
+					<button type="button" class="btn btn-outline-secondary " onclick="addRecipient()">Adicionar</button>
+					<datalist id="emailSuggestions"></datalist>
+
+					<input type="checkbox" class="btn-check" id="sendToAll" name="sendToAll" onchange="toggleSendToAll(this)" autocomplete="off">
+        			<label class="btn btn-outline-secondary" for="sendToAll">Enviar para todos</label>
+				</div>
+				<div id="recipient-list" class="mb-2"></div>
+				
+				<div class="input-group input-group-sm mb-3">
+					<span class="input-group-text">Cópia:</span>
+					<input type="email" class="form-control" id="copia" name="copia" 
+						aria-label="Cópia" oninput="suggestEmails(this)" list="emailSuggestionsCopia">
+					<datalist id="emailSuggestionsCopia"></datalist>
+					<button class="btn btn-outline-secondary" type="button" onclick="addCopy()">Adicionar</button>
+				</div>
+				<div id="copy-list" class="mb-2"></div>
+				
+	
+				<!-- Campo Assunto -->
+				<div class="mb-3">
+					<label for="assunto" class="form-label">Assunto:</label>
+					<input type="text" class="form-control" id="assunto" name="assunto" required>
+					<div class="invalid-feedback">Por favor, insira um assunto.</div>
+				</div>
+	
+				<!-- Campo Corpo -->
+				<div class="mb-3">
+					<textarea id="corpo" class="form-control" placeholder="Digite a mensagem aqui"></textarea>
+				</div>
+	
+				<!-- Botão Enviar -->
+				<div class="mb-3">
+					<button class="btn btn-primary btn-send-mail" onclick="send_mail(event)">Enviar</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+
+</div>
+
+<!-- MODELOS DE SCRIPT -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start script_models hide_element" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img class="hide_element_visibility" src="/public/images/maximize.svg" width="12px">
+		<h6>MODELOS DE SCRIPT</h6>
+		<div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+	</nav>
+
+  
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+					<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+				</svg>
+				Cadastrar categoria
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+					<svg onclick="getScriptsByDefault(), show_text_categories(this)"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+						<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+						<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+					</svg>
+
+					<svg onclick="HideElement(this.parentElement.parentElement.parentElement), show_text_categories(this)" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 15 15">
+						<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm" placeholder="ERP">Rótulo</span>
+								<input type="text" class="form-control template_category" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+
+							
+							
+						</div>
+
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<label class="input-group-text" for="selectTxtTemplate">Escopo</label>
+								<select class="form-select selectTxtTemplate" id="selectTxtTemplate">
+								  <option value="local" selected>Local</option>
+                                  <option value="global" selected>Global</option>
+								</select>
+							</div>
+						</div>
+					</div><!--row-->
+
+
+					<div class="wdg_card_btn_util mt-3">
+						<div class="input-group input-group-sm mb-3">
+							<button class="btn btn-outline-secondary" type="button" onclick="set_text_template_category(this)">Salvar</button>
+						</div>
+					</div>
+
+
+					<div class="row conteiner_categories overflow-auto">
+		
+					</div><!--Endrow--> 
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+		</div>
+
+	</div><!--End wdg_card-->
+
+
+	<div class="wdg_card set_text_template"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
+					<path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
+				</svg>
+				Cadastrar atalho e modelo
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				 <svg onclick="getScriptsByDefault()"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg> 
+
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), getScriptsByDefault()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm">Atalho</span>
+								<input type="text" class="form-control shortcut" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm">Título</span>
+								<input type="text" class="form-control title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<label class="input-group-text" for="selectGroupCategoryOnSettings">Categoria</label>
+								<select class="form-select selectGroupCategoryOnSettings" id="selectGroupCategoryOnSettings">
+								  <option selected>Sem categoria</option>
+								  
+								</select>
+							  </div>
+
+                              
+                            <div class="input-group input-group-sm mb-3">
+                                <label class="input-group-text" for="scope">Escopo</label>
+                                <select class="form-select " id="scope">
+                                    <option value="local" selected="">Local</option>
+                                    <option value="global">Global</option>
+                                </select>
+                            </div>
+                            
+						</div>
+						
+					</div><!--row-->
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+			<!--NOVAS FUNCIONALIDADES-->
+			<div class="input-group input-group-sm mb-3 px-2">
+				<!-- <div class="d-flex flex-column btn-group-vertical">
+					<button onclick="getInputValueHTML(this)" class="btn btn-outline-secondary  "
+						type="button" id="button-addon1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-clipboard" viewBox="0 0 16 16">
+							<path
+								d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+							<path
+								d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+						</svg>
+					</button>
+
+					<button onclick="eraseContentEditable(this)" class="btn btn-outline-secondary  "
+						type="button" id="button-addon1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16">
+							<path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
+						</svg>
+					</button>
+
+				</div> -->
+
+
+				<!--Editor 	de texto-->
+				<div class="form-control conteiner-text-edit ">
+					<div class="editor_shortcuts_container"> 
+						<!-- <span class="btn-span-sm">#atalho1</span>  <span class="btn-span-sm">#atalho2</span> -->  
+					
+					</div>
+					<qlk class="wdg_text_area form-control" contenteditable="true" onpaste="removeFormatting(event)"
+						oninput="updateTextArea(this.parentElement)" onkeydown="findAndReplaceShortcutWithTextModel(this.parentElement, event)" onload="updateTextArea(this.parentElement)" type="text"
+						placeholder="Descreva aqui a solicitação do cliente" aria-label="Example text with button addon"
+						aria-describedby="button-addon1" 
+						style="margin-left: -1px !important; "></qlk>
+					<textarea type="text" id="request" class="form-control txt_area hide_element" readonly
+						aria-label="Example text with button addon" aria-describedby="button-addon1"
+						style="margin-left: -1px !important; "></textarea>
+
+
+
+					<div class="d-flex flex-wrap justify-content-start wdg_text_edit align-items-center">
+						<img src="/public/images/font_bold.svg" onclick="document.execCommand('bold', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em negrito">
+						<img src="/public/images/font_italic.svg" onclick="document.execCommand('italic', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em itálico">
+						<img src="/public/images/font_underline.svg" onclick="document.execCommand('underline', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte com sublinhado">
+						<img src="/public/images/font_break.svg" onclick="document.execCommand('insertHTML', false, '<br>')"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Quebra de linha">
+						<img src="/public/images/font_line.svg"
+							onclick="document.execCommand('insertHorizontalRule', false, null)" data-bs-toggle="tooltip"
+							data-bs-placement="top" title="Linha horizontal">
+						<img src="/public/images/font_color.svg" onclick="img_onclick(this.parentElement)"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar cor do texto">
+						<img src="/public/images/html.svg"
+							onclick="showHTML(this.parentElement.parentElement, 'txt_area'), useToggle(this,'checked')"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar cor do texto">
+						<input type="color" id="cor" onchange="changeColorEditable(this.parentElement)" width="10px"
+							style="visibility: hidden;">
+
+					</div>
+
+				</div><!--Fim editor de texto-->
+
+
+				<!-- <div class="d-flex flex-column btn-group-vertical">
+					<button onclick="setContenteditableValue(this)"  class="btn btn-outline-secondary  " type="button" id="button-addon2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-arrow-right" viewBox="0 0 16 16">
+							<path fill-rule="evenodd"
+								d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+						</svg>
+					</button>
+
+					<button onclick="addUpdatedValue(this)"  class="btn btn-outline-secondary  " type="button" id="button-addon2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+							<path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+						  </svg>
+					</button>					
+				</div> -->
+
+				
+
+
+			</div><!--Fim funcionalidades-->
+
+			<div class="wdg_card_btn_util">
+				<div class="input-group input-group-sm mb-3  px-2">
+					<button class="btn btn-outline-secondary" type="button" onclick="setTextmodel(this)">Salvar modelo</button>
+				</div>
+			</div>
+		</div>
+
+	</div><!--End wdg_card-->
+
+	<div class="wdg_card show_text_template my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+					<path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+					<path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+				  </svg>
+				Exibir modelos de script
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="getScriptsByDefault(), addTexplateModelsWithShortCutsOnContainer(this)"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg>
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), addTemplateModelsWithShortCutsOnContainer(this)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element" >
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="my-2 row searchOptions">
+						<div class="col-md-6 my-3">
+							<select class="form-select selectGroupCategory" aria-label="Default select example" onchange="filterTexModelsByOption(this)">
+								<option  selected>Todas as respostas</option>
+							</select>
+						</div>
+
+						<div class="col-md-6 my-3">
+							<div class="d-flex" role="search">
+								<input class="form-control me-2" type="search" placeholder="Digite aqui sua pesquisa" aria-label="Search"
+								oninput="filterTexModelsBySearch(this.parentElement)">
+								<button class="btn btn-outline-success" onclick="filterTexModelsBySearch(this.parentElement)">Pesquisar</button>
+							</div>
+						</div>
+					</div>
+					<div class="row overflow-auto conteiner_text_models">
+						
+						
+
+						asdfsfd
+
+					</div><!--Endrow-->
+
+					
+				</div> <!--End wdg_card_form-->
+			</div><!--End wdg_content_form-->
+				
+
+		</div><!--End showContent-->
+
+	</div><!--End wdg_card-->
+	
+</div>
+
+<!-- NOTIFICAÇÔES -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start all_notifications hide_element" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img class="hide_element_visibility" src="/public/images/maximize.svg" width="12px">
+		<h6>MODELOS DE SCRIPT</h6>
+		<div class="bg-warning p-1 rounded-pill">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+	</nav>
+
+
+
+
+	<div class="wdg_card set_text_template"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" fill="currentColor" class="bi bi-hash" viewBox="0 0 16 16">
+					<path d="M8.39 12.648a1.32 1.32 0 0 0-.015.18c0 .305.21.508.5.508.266 0 .492-.172.555-.477l.554-2.703h1.204c.421 0 .617-.234.617-.547 0-.312-.188-.53-.617-.53h-.985l.516-2.524h1.265c.43 0 .618-.227.618-.547 0-.313-.188-.524-.618-.524h-1.046l.476-2.304a1.06 1.06 0 0 0 .016-.164.51.51 0 0 0-.516-.516.54.54 0 0 0-.539.43l-.523 2.554H7.617l.477-2.304c.008-.04.015-.118.015-.164a.512.512 0 0 0-.523-.516.539.539 0 0 0-.531.43L6.53 5.484H5.414c-.43 0-.617.22-.617.532 0 .312.187.539.617.539h.906l-.515 2.523H4.609c-.421 0-.609.219-.609.531 0 .313.188.547.61.547h.976l-.516 2.492c-.008.04-.015.125-.015.18 0 .305.21.508.5.508.265 0 .492-.172.554-.477l.555-2.703h2.242l-.515 2.492zm-1-6.109h2.266l-.515 2.563H6.859l.532-2.563z"/>
+				</svg>
+				Cadastrar nova notificação
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				 <svg onclick="getScriptsByDefault()"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg> 
+
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), getScriptsByDefault()" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<span class="input-group-text" id="inputGroup-sizing-sm">Título</span>
+								<input type="text" class="form-control title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+							</div>
+						</div>
+
+						<div class="col-md-6">                              
+                            <div class="input-group input-group-sm mb-3">
+                                <label class="input-group-text" for="scope">Escopo</label>
+                                <select class="form-select " id="scope">
+                                    <option value="local">Local</option>
+                                    <option value="global" selected>Global</option>
+                                </select>
+                            </div>
+                            
+						</div>
+						
+					</div><!--row-->
+
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+			<!--NOVAS FUNCIONALIDADES-->
+			<div class="input-group input-group-sm mb-3 px-2">
+				<!-- <div class="d-flex flex-column btn-group-vertical">
+					<button onclick="getInputValueHTML(this)" class="btn btn-outline-secondary  "
+						type="button" id="button-addon1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-clipboard" viewBox="0 0 16 16">
+							<path
+								d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+							<path
+								d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+						</svg>
+					</button>
+
+					<button onclick="eraseContentEditable(this)" class="btn btn-outline-secondary  "
+						type="button" id="button-addon1">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser" viewBox="0 0 16 16">
+							<path d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z"/>
+						</svg>
+					</button>
+
+				</div> -->
+
+
+				<!--Editor 	de texto-->
+				<div class="form-control conteiner-text-edit ">
+					<div class="editor_shortcuts_container"> 
+						<!-- <span class="btn-span-sm">#atalho1</span>  <span class="btn-span-sm">#atalho2</span> -->  
+					
+					</div>
+					<qlk class="wdg_text_area form-control" contenteditable="true" onpaste="removeFormatting(event)"
+						oninput="updateTextArea(this.parentElement)" onkeydown="findAndReplaceShortcutWithTextModel(this.parentElement, event)" onload="updateTextArea(this.parentElement)" type="text"
+						placeholder="Descreva aqui a solicitação do cliente" aria-label="Example text with button addon"
+						aria-describedby="button-addon1" 
+						style="margin-left: -1px !important; "></qlk>
+					<textarea type="text" id="request" class="form-control txt_area hide_element" readonly
+						aria-label="Example text with button addon" aria-describedby="button-addon1"
+						style="margin-left: -1px !important; "></textarea>
+
+
+
+					<div class="d-flex flex-wrap justify-content-start wdg_text_edit align-items-center">
+						<img src="/public/images/font_bold.svg" onclick="document.execCommand('bold', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em negrito">
+						<img src="/public/images/font_italic.svg" onclick="document.execCommand('italic', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em itálico">
+						<img src="/public/images/font_underline.svg" onclick="document.execCommand('underline', false, '');"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte com sublinhado">
+						<img src="/public/images/font_break.svg" onclick="document.execCommand('insertHTML', false, '<br>')"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Quebra de linha">
+						<img src="/public/images/font_line.svg"
+							onclick="document.execCommand('insertHorizontalRule', false, null)" data-bs-toggle="tooltip"
+							data-bs-placement="top" title="Linha horizontal">
+						<img src="/public/images/font_color.svg" onclick="img_onclick(this.parentElement)"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar cor do texto">
+						<img src="/public/images/html.svg"
+							onclick="showHTML(this.parentElement.parentElement, 'txt_area'), useToggle(this,'checked')"
+							data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar cor do texto">
+						<input type="color" id="cor" onchange="changeColorEditable(this.parentElement)" width="10px"
+							style="visibility: hidden;">
+
+					</div>
+
+				</div><!--Fim editor de texto-->
+
+
+				<!-- <div class="d-flex flex-column btn-group-vertical">
+					<button onclick="setContenteditableValue(this)"  class="btn btn-outline-secondary  " type="button" id="button-addon2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-arrow-right" viewBox="0 0 16 16">
+							<path fill-rule="evenodd"
+								d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+						</svg>
+					</button>
+
+					<button onclick="addUpdatedValue(this)"  class="btn btn-outline-secondary  " type="button" id="button-addon2">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+							<path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+						  </svg>
+					</button>					
+				</div> -->
+
+				
+
+
+			</div><!--Fim funcionalidades-->
+
+			<div class="wdg_card_btn_util">
+				<div class="input-group input-group-sm mb-3  px-2">
+					<button class="btn btn-outline-secondary" type="button" onclick="setTextNotification(this)">Enviar notificação</button>
+				</div>
+			</div>
+		</div>
+
+	</div><!--End wdg_card-->
+
+	<div class="wdg_card show_text_template my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+					<path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+					<path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+				  </svg>
+				Todas as notificações
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="getScriptsByDefault(), addTexplateModelsWithShortCutsOnContainer(this)"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg>
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), addTemplateModelsWithShortCutsOnContainer(this)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element" >
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">	
+					<div class="row notification-container">...</div>				
+				</div> <!--End wdg_card_form-->
+			</div><!--End wdg_content_form-->
+				
+                
+		</div><!--End showContent-->
+
+	</div><!--End wdg_card-->
+	
+</div>
+
+ 
+
+<script src="/public/js/WidgetTextEditView.js"></script>
+<script src="/public/js/app.js"></script>
+<script src="/public/js/Settings.js"></script>

@@ -1,0 +1,148 @@
+
+<main class="d-flex justity-content-center main-class" style="height: 100vh;">  
+  <div action="/authenticate" method="post" class="form-signin cont-acc">
+    <div class="col mx-auto text-center">
+      <img class="mb-4 rounded-circle" src="public/images/profile/_d6e9d6f6-2a75-445b-b331-5f0b1b897659.jpg" alt="" width="150" >
+      <h1 class="h3 mb-3 fw-normal">Entre com suas credenciais</h1>
+      <span class="show-error" style="color: rgb(243, 86, 86);"></span>
+    </div>
+    <div class="form-floating mb-2 ">
+      <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" name="user">
+      <label for="floatingInput">Email</label>
+    </div>
+    <div class="form-floating mb-2">
+      <!--<input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">-->
+      <input onkeydown="if(event.key === 'Enter') authenticate(event)" type="password" class="form-control" id="floatingPassword" placeholder="Password" name="pass">
+      <label for="floatingPassword">Senha</label>
+    </div>
+    <div class="checkbox mb-3">
+      <label> Esqueceu a senha? <a href="/rescueaccount">Clique aqui</a>
+        <!-- /<input type="checkbox" value="remember-me"> Remember me -->
+      </label>
+    </div>
+    <!--<button class="w-100 btn btn-lg btn-primary" type="submit">Continue</button>-->
+    <button class="w-100 btn btn-lg btn-primary" type="submit" onclick="authenticate(event)">Continue</button>
+    <a href="https://slickhoarfrost.com/nusd7tafvd?key=e1ee3c7892a8957b9eff18bc93333a02">Add</a>
+    <!-- <p class="mt-3 mb-3 text-center w-100" >Não tem uma conta? Inscreva-se</p> -->
+    
+  </div>
+
+</main>  
+
+<footer>
+  <div class="checkbox mb-3 ">
+    <label>
+      Leia os termos de uso. <a href="#" class="mx-auto" onclick="openModal()">Termos de Uso</a>
+      <!-- /<input type="checkbox" value="remember-me"> Remember me -->
+    </label>
+  </div>
+</footer>
+
+
+
+
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Termos de Uso</h2>
+    <p>
+      Estes Termos de Uso ("Termos") regem o uso da plataforma Response Builder, de propriedade de SilvaDevBR, doravante referida como "Plataforma". Ao utilizar a Plataforma, você concorda com estes Termos, portanto, leia-os atentamente antes de prosseguir.
+
+      1. Uso da Plataforma
+      1.1. Ao utilizar a Plataforma Response Builder, você declara que é maior de idade e autoriza que seus dados sejam usados para melhoria de todos os produtos da marca SilvaDevBR. Além disso, concorda em cumprir todas as leis e regulamentos aplicáveis, bem como estes Termos de Uso.
+      1.2. O uso da Plataforma é de sua responsabilidade exclusiva. Você é responsável por garantir que o conteúdo e as informações fornecidas estejam em conformidade com as leis vigentes e que não infrinjam os direitos de terceiros.
+
+      2. Isenção de Responsabilidade
+      2.1. A Plataforma Response Builder é fornecida "NO ESTADO EM QUE SE ENCONTRA" e "COMO DISPONÍVEL", sem quaisquer garantias de qualquer tipo.
+      2.2. A SilvaDevBR não se responsabiliza por qualquer dano, perda ou responsabilidade decorrente do uso ou incapacidade de usar a Plataforma, incluindo, mas não se limitando a, danos diretos, indiretos, incidentais, consequenciais ou punitivos.
+
+      3. Mau Uso da Plataforma
+      3.1. O mau uso da Plataforma Response Builder, incluindo, mas não se limitando a, atividades fraudulentas, atividades ilegais, assédio, violação de direitos autorais ou de propriedade intelectual, é estritamente proibido.
+      3.2. A SilvaDevBR se reserva o direito de suspender ou encerrar a conta de qualquer usuário que for flagrado praticando mau uso da Plataforma, sem aviso prévio.
+
+      4. Crimes Cibernéticos
+      4.1. A SilvaDevBR não será responsável por quaisquer crimes cibernéticos cometidos por terceiros, incluindo, mas não se limitando a, ataques de hackers, roubo de dados, invasão de privacidade ou outras atividades ilegais.
+      4.2. Nos casos em que for identificada qualquer atividade suspeita ou violação de segurança, a SilvaDevBR tomará as medidas adequadas para proteger a Plataforma e seus usuários.
+
+      5. Responsabilidade pelos Dados
+      5.1. Os dados salvos e compartilhados na Plataforma Response Builder são de total responsabilidade dos usuários.
+      5.2. A SilvaDevBR não será responsável por qualquer perda, corrupção ou acesso não autorizado aos dados dos usuários.
+
+      6. Alterações nos Termos de Uso
+      6.1. A SilvaDevBR reserva-se o direito de modificar estes Termos de Uso a qualquer momento, mediante aviso prévio aos usuários.
+      6.2. O uso contínuo da Plataforma após a publicação das alterações nos Termos constituirá aceitação das modificações.
+
+      Ao utilizar a Plataforma Response Builder, você concorda integralmente com estes Termos de Uso. Se você não concorda com estes Termos, por favor, não utilize a Plataforma. Se tiver alguma dúvida sobre estes Termos ou o uso da Plataforma, entre em contato conosco através dos canais disponíveis.
+    </p>
+  </div>
+</div>
+
+
+<script>
+      function openModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+</script>
+
+
+<style>
+  body {
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+footer{
+  position: absolute !important;
+  top: calc(100% - 40px) ;
+}
+
+</style>

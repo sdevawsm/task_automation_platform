@@ -1,0 +1,26 @@
+# Diretórios de compilação
+
+*.css
+*.css.map
+
+# Arquivos temporários
+*.tmp
+*.log
+
+# MacOS
+.DS_Store
+
+# EditorConfig / IDE
+.idea/
+.vscode/
+
+# Node modules (se estiver usando Node)
+node_modules/
+
+# Cache do Sass (se aplicável)
+.sass-cache/
+
+# Environment variables - NEVER commit sensitive data
+.env
+.env.local
+.env.*.local

@@ -1,0 +1,1267 @@
+
+<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+    <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+    <h6 class="wdg_card_name_user" onclick="createDropDown(this)"
+        onkeydown="if(event.keyCode==13) {event.preventDefault();}">NOME
+    </h6>
+
+
+
+    <div class="d-flex window_behavior justify-content-end">
+
+        <svg xmlns="http://www.w3.org/2000/svg" onclick="clearContainer(this), clearClienteName(this), clearClienteCPF(this)" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16"
+        data-bs-toggle="tooltip" data-bs-placement="top" title="Apaga os dados preenchidos"
+        >
+            <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2z"/>
+            <path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466"/>
+        </svg>
+
+
+        <svg xmlns="http://www.w3.org/2000/svg" onclick="showFormDesk(this, 'hide_form')" width="16" height="16" fill="currentColor" class="bi bi-card-list" viewBox="0 0 16 16"
+        data-bs-toggle="tooltip" data-bs-placement="top" title="Carrega o formulário de preenchimento"
+        >
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z"/>
+            <path d="M5 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 5 8m0-2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-1-5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0M4 8a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m0 2.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0"/>
+        </svg>
+       
+
+        <svg onclick="HideElement(this.parentElement.parentElement.parentElement), showFormDesk(this, 'hide_all')"  xmlns="http://www.w3.org/2000/svg"
+            width="10" height="10" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 15 15"
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Expande o formulário"
+            >
+            <path fill-rule="evenodd"
+                d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+        </svg>
+
+
+        <svg  class="btn-remove-card" onclick="" xmlns="http://www.w3.org/2000/svg"
+            width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15"
+            data-bs-toggle="tooltip" data-bs-placement="top" title="Exclui o formulário"
+            >
+            <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+        </svg>
+    </div>
+</header>
+
+
+
+<div class="show_form hide_element">
+    <iframe class="frame" src="https://docs.google.com/forms/d/e/1FAIpQLSeZnV8sZ1sHh5L2s5jA6wvCq8o913uZXhY7DK7DZSkL4PfAOw/viewform" height="450px" width="100% !important" scrolling="yes"> </iframe>
+</div>
+
+
+<div class="showContent">
+
+    <div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+        <div class="wdg_card_form container-fluid">
+            <div class="row row-100">
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm mb-3">
+                        <button onclick="getInputValue(this.parentElement)"
+                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+                            </svg>
+                        </button>
+
+                        <button onclick="updateInputValue(this, '.input-group', 'titular')"
+                            class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2"
+                            
+                            data-bs-toggle="tooltip" data-bs-placement="top" title="escreve Titular no campo de nome do cliente. Deve ser utilizado no Sales Force"
+                            >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-node-plus" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M11 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8M6.025 7.5a5 5 0 1 1 0 1H4A1.5 1.5 0 0 1 2.5 10h-1A1.5 1.5 0 0 1 0 8.5v-1A1.5 1.5 0 0 1 1.5 6h1A1.5 1.5 0 0 1 4 7.5zM11 5a.5.5 0 0 1 .5.5v2h2a.5.5 0 0 1 0 1h-2v2a.5.5 0 0 1-1 0v-2h-2a.5.5 0 0 1 0-1h2v-2A.5.5 0 0 1 11 5M1.5 7a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5z"/>
+                            </svg>
+                        </button>
+
+                        <input type="text" oninput="updateCardUsername(this)" onchange="updateCardUsername(this)"
+                            class="form-control username" placeholder="Nome" aria-label="Example text with button addon"
+                            aria-describedby="button-addon1">
+                        <button onclick="setInputValue(this)" onclick="setInputValue(this)"
+                            class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <button onclick="getInputValue(this.parentElement)"
+                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-globe" viewBox="0 0 16 16">
+                                <path
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z" />
+                            </svg>
+                        </button>
+
+                        <input type="text" class="form-control erp_protocol" placeholder="Protocolo ADM"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                            type="button" id="button-addon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3">
+                        <button onclick="getInputValue(this.parentElement)"
+                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-broadcast-pin" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.05 3.05a7 7 0 0 0 0 9.9.5.5 0 0 1-.707.707 8 8 0 0 1 0-11.314.5.5 0 0 1 .707.707zm2.122 2.122a4 4 0 0 0 0 5.656.5.5 0 1 1-.708.708 5 5 0 0 1 0-7.072.5.5 0 0 1 .708.708zm5.656-.708a.5.5 0 0 1 .708 0 5 5 0 0 1 0 7.072.5.5 0 1 1-.708-.708 4 4 0 0 0 0-5.656.5.5 0 0 1 0-.708zm2.122-2.12a.5.5 0 0 1 .707 0 8 8 0 0 1 0 11.313.5.5 0 0 1-.707-.707 7 7 0 0 0 0-9.9.5.5 0 0 1 0-.707zM6 8a2 2 0 1 1 2.5 1.937V15.5a.5.5 0 0 1-1 0V9.937A2 2 0 0 1 6 8z" />
+                            </svg>
+                        </button>
+
+
+                        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="visually-hidden">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <div class="dropdown-item" href="#"
+                                    onclick="updateInputValue(this, '.input-group', 'Padrão fibra')">Padrão fibra</div>
+                            </li>
+
+                            <li>
+                                <div class="dropdown-item" href="#"
+                                    onclick="updateInputValue(this, '.input-group', 'Apresentando respostas')">
+                                    Apresentando respostas</div>
+                            </li>
+                            <li>
+                                <div class="dropdown-item" href="#"
+                                    onclick="updateInputValue(this, '.input-group', 'Sem resposta')">Sem resposta</div>
+                            </li>
+                        </ul>
+
+
+                        <input type="text" class="form-control base" placeholder="base/padrão fibra"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1"
+                            value="Padrão fibra">
+                        <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                            type="button" id="button-addon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></i>
+                        </button>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="input-group input-group-sm mb-3">
+                        <button onclick="getInputValue(this.parentElement)"
+                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-telephone" viewBox="0 0 16 16">
+                                <path
+                                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                            </svg>
+                        </button>
+
+                        <input  onpaste="removeDots(this)" type="text" class="form-control phone_number" placeholder="Telefone"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button onclick="setInputValue(this), removeDots(this, 'true')" class="btn btn-outline-secondary rounded-end"
+                            type="button" id="button-addon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></i>
+                        </button>
+                    </div>
+
+                    <div class="input-group input-group-sm mb-3  enable-chat">
+                        <button onclick="getInputValue(this.parentElement)"
+                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chat-left-text" viewBox="0 0 16 16">
+                                <path
+                                    d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                                <path
+                                    d="M3 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 6a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 6zm0 2.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z" />
+                            </svg>
+                        </button>
+
+                        <input type="text" class="form-control number_chat_protocol" placeholder="Protocolo chat"
+                            aria-label="Example text with button addon" aria-describedby="button-addon1">
+                        <button onclick="setInputValue(this)" onclick="setInputValue(this)"
+                            class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                            </svg></i>
+                        </button>
+                    </div>
+
+                    <!-- estava cpf aqui -->
+                    <div class="row cpf_cliente_group">
+                        <div class="input-group input-group-sm mb-3">
+                            <button onclick="getInputValueByClass(this.parentElement, '.input_for_validade_cp')"
+                                class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1"
+                                
+                                data-bs-toggle="tooltip" data-bs-placement="top" title="Copia o CPF ou CNPJ sem a mascara"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-person-vcard" viewBox="0 0 16 16">
+                                    <path
+                                        d="M5 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm4-2.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5ZM9 8a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 9 8Zm1 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5Z" />
+                                    <path
+                                        d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2ZM1 4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H8.96c.026-.163.04-.33.04-.5C9 10.567 7.21 9 5 9c-2.086 0-3.8 1.398-3.984 3.181A1.006 1.006 0 0 1 1 12V4Z" />
+                                </svg>
+                            </button>
+    
+                            <button onclick="getInputValueByClassCpfCnpjMasked(this.parentElement, '.input_for_validade_cp')"
+                                class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1"
+                                
+                                data-bs-toggle="tooltip" data-bs-placement="top" title="Copia o CPF ou CNPJ com a mascara"
+                                >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-mask" viewBox="0 0 16 16">
+                                    <path d="M6.225 1.227A7.5 7.5 0 0 1 10.5 8a7.5 7.5 0 0 1-4.275 6.773 7 7 0 1 0 0-13.546M4.187.966a8 8 0 1 1 7.627 14.069A8 8 0 0 1 4.186.964z"/>
+                                  </svg>
+                            </button>
+    
+                            <span class="input-group-text cpf_validate"> 
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question" viewBox="0 0 16 16">
+                                    <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94"/>
+                                </svg>
+                            </span>
+    
+    
+                            <input onpaste="removeDots(this)" type="text"
+                                class="form-control cpf input_for_validade_cpf" placeholder="cpf ou cnpj"
+                                aria-label="Example text with button addon" aria-describedby="button-addon1" pattern="[0-9]*" inputmode="numeric">
+                              
+                            <button onclick="removeDots(this, true)" class="btn btn-outline-secondary rounded-end" type="button"
+                                id="button-addon2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                </svg></i>
+                            </button>
+    
+                            <button onclick="buscarClientePorCpf(this.parentElement.querySelector('.input_for_validade_cpf').value, this )" class="btn btn-outline-secondary rounded-end" type="button"
+                                id="button-addon2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                                </svg>
+                            </button>   
+    
+                        </div>
+                        
+                         <div class="form-check">
+                            <input class="form-check-input canceladoCheckbox" type="checkbox" id="canceladoFlag">
+                            <label class="form-check-label" for="canceladoFlag">
+                              Incluir cadastros cancelados
+                            </label>
+                          </div>  
+                    </div>
+
+                </div><!--End col 6-->
+
+                
+
+                <hr>
+
+                <div class=""> <!--- Agendamento -->
+                    <header class="d-flex justify-content-between mb-3"><!--Cabeçalho-->
+                        <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+                        <h6>AGENDAMENTO</h6>
+                        <div class="d-flex window_behavior justify-content-end">
+                            <svg onclick="HideElement(this.parentElement.parentElement.parentElement, '.showContent2')"
+                                xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+                                class="bi bi-arrows-collapse" viewBox="0 0 15 15">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </header>
+
+                    <div class="showContent2 hide_element row">
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm mb-3">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-bookmarks" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v11.5a.5.5 0 0 1-.777.416L7 13.101l-4.223 2.815A.5.5 0 0 1 2 15.5zm2-1a1 1 0 0 0-1 1v10.566l3.723-2.482a.5.5 0 0 1 .554 0L11 14.566V4a1 1 0 0 0-1-1z" />
+                                        <path
+                                            d="M4.268 1H12a1 1 0 0 1 1 1v11.768l.223.148A.5.5 0 0 0 14 13.5V2a2 2 0 0 0-2-2H6a2 2 0 0 0-1.732 1" />
+                                    </svg>
+                                </button>
+
+                                <button type="button"
+                                    class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Manhã')">Manhã</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Tarde')">Tarde</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Noite')">Noite</div>
+                                    </li>
+                                    <li>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Indisponível')">
+                                            Indisponível</div>
+                                    </li>
+                                </ul>
+
+
+                                <input type="text" class="form-control agendamento"
+                                    placeholder="Selecione o agendamento" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1">
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg>
+                                </button>
+                                <input type="date" class="form-control dataDeAgendamento" pattern="\d{2}/\d{2}/\d{4}"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1">
+                            </div>
+                        </div><!-- End Col-->
+
+                        <div class="col-md-6">
+                            <div class="input-group input-group-sm mb-3">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-card-heading" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                                        <path
+                                            d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </button>
+
+
+                                <button type="button"
+                                    class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Manhã')">Manhã</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Tarde')">Tarde</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Noite')">Noite</div>
+                                    </li>
+                                    <li>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Qualquer horário')">
+                                            Qualquer horário</div>
+                                    </li>
+                                </ul>
+
+
+                                <input type="text" class="form-control disponibilidadeGeral"
+                                    placeholder="Disponibilidade Geral" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1" value="">
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+
+
+                            <div class="input-group input-group-sm mb-3">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control pontoDeReferencia"
+                                    placeholder="Ponto de referência" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1">
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+
+
+                        </div><!-- End Col-->
+
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                <label class="form-label fw-bold">Opções adicionais:</label>
+                        
+                                <div class="form-check w-100 mb-2 ">
+                                    <input class="form-check-input check-addon" type="checkbox" id="checkbox1" value="maiorIdade">
+                                    <label class="form-check-label w-100" for="checkbox1">Cliente ciente de que deve haver uma pessoa maior de idade.</label>
+                                </div>
+                        
+                                <div class="form-check w-100 mb-2 ">
+                                    <input class="form-check-input check-addon" type="checkbox" id="checkbox2" value="garantia30">
+                                    <label class="form-check-label w-100" for="checkbox2">Garantia de Instalação (30 dias).</label>
+                                </div>
+                        
+                                <div class="form-check w-100">
+                                    <input class="form-check-input check-addon" type="checkbox" id="checkbox3" value="empresa">
+                                    <label class="form-check-label w-100" for="checkbox3">Cliente empresarial.</label>
+                                </div>
+                            </div>
+                        </div><!-- End row -->
+                        
+
+
+                    </div> <!-- Showcontent  -->
+                </div> <!-- End Agendamento--->
+
+                <hr>
+
+                <div class="cont_serv"> <!--- Endereço -->
+                    <header class="d-flex justify-content-between mb-3"><!--Cabeçalho-->
+                        <!-- <img src="/public/images/more_options.svg" width="25px"> -->
+                        <h6>SERVIÇOS</h6>
+                        <div class="d-flex window_behavior justify-content-end">
+                            <svg onclick="HideElement(this.parentElement.parentElement.parentElement, '.showContent2')"
+                                xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor"
+                                class="bi bi-arrows-collapse" viewBox="0 0 15 15">
+                                <path fill-rule="evenodd"
+                                    d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z">
+                                </path>
+                            </svg>
+                        </div>
+                    </header>
+
+                    <div class="showContent2 hide_element row ">
+                        <p>Utilize um desses atalhos #agend | #sertransfend | #sermudcom | #serpontadic | #sermontrede | #venda</p>
+                        <div class="input-group input-group-sm mb-3 px-2">
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'agend'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#agend">Agendamento</button>
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'transfEnd'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#sertransfend">Tranf. End </button>
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'mudCom'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#sermudcom">Mud. Cômodo </button>
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'pAdic'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#serpontadic">P. Adicional </button>
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'mRede'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#sermontrede">Mont. de rede </button>
+                            <button class="btn-select btn btn-outline-primary" type="button" onclick="enableFormByService(event,'venda'), distributeElements(event)" data-bs-toggle="tooltip" data-bs-placement="top" title="#venda">Venda</button>
+                        </div>
+
+                        <div class="col-md-6" id="col1">
+                            <!-- CEP -->
+                            <div class="input-group input-group-sm mb-3 in_data cep hide_element transfEnd venda " data-order="1000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control _Cep" placeholder="Digite o cep"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'cep')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{cep}}"
+
+                                    >
+                                <button onclick="getCepAddForm(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+                                    Pesquisar
+                                </button>
+                            </div>
+                            <!-- rua -->
+                            <div class="input-group input-group-sm mb-3 in_data rua hide_element transfEnd venda " data-order="2000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control _Address" placeholder="Rua"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'rua')"
+
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{rua}}"
+
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- número -->
+                            <div class="input-group input-group-sm mb-3 in_data numero hide_element transfEnd venda " data-order="3000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control numero" placeholder="Número"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'numero')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{numero}}"
+
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- bairro -->
+                            <div class="input-group input-group-sm mb-3 in_data bairro hide_element transfEnd venda " data-order="4000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control _District" placeholder="Bairro"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'bairro')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{bairro}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- cidade-->
+                            <div class="input-group input-group-sm mb-3 in_data cidade hide_element transfEnd venda " data-order="5000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control _City" placeholder="Cidade"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'cidade')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{cidade}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+                            <!-- tipo de moradia-->
+                            <div class="input-group input-group-sm mb-3 in_data tipo_moradia hide_element transfEnd  " data-order="5001">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-card-heading" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                                        <path
+                                            d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </button>
+
+
+                                <button type="button"
+                                    class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Casa'), dispatchEventForInput(this, 'filledInput', 'tipo_moradia')">Casa</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Apartamento'), dispatchEventForInput(this, 'filledInput', 'tipo_moradia')">Apartamento</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Chácara'), dispatchEventForInput(this, 'filledInput', 'tipo_moradia')">Chácara</div>
+                                    </li>
+                                    <li>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Zona rural'), dispatchEventForInput(this, 'filledInput', 'tipo_moradia')">
+                                            Qualquer horário</div>
+                                    </li>
+                                </ul>
+
+
+                                <input type="text" class="form-control tipoMoradia"
+                                    placeholder="Tipo de moradia" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'tipo_moradia')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{tipo_moradia}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{tipo_moradia}}"
+                                    >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            
+                            <!-- cliente já reside no endereço-->
+                            <div class="input-group input-group-sm mb-3 in_data mora_no_endereco hide_element transfEnd " data-order="6000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control moraNoEndereco" placeholder="Cliente já reside no endereço?"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'mora_no_endereco')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{mora_no_endereco}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+                            
+
+
+                            
+
+                            <!-- Quantidade de pontos adicionais-->
+                            <div class="row" data-order="7000">
+                                <div class="col-md-6">
+                                    <div class="input-group input-group-sm mb-3 in_data qtd_p_adicional hide_element pAdic mRede" data-order="7001">
+                                        <label class="input-group-text" >qtd de pontos</label>
+                                        <select class="form-select" onchange="findAndReplaceVariableForInputValue(event,'qtd_p_adicional')"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{qtd_p_adicional}}"
+                                        >
+                                            <option value="0" selected>0</option>
+                                            <option value="1" >1</option>
+                                            <option value="2" >2</option>
+                                            <option value="3" >3</option>
+                                            <option value="4" >4</option>
+                                            <option value="5" >5</option>
+                                            <option value="6" >6</option>
+                                            <option value="7" >7</option>
+                                            <option value="8" >8</option>
+                                            <option value="9" >9</option>
+                                            <option value="10" >10</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Tipo de -->
+                                <div class="col-md-6">
+                                    <!-- Plano-->
+                                    <div class="input-group input-group-sm mb-3 in_data tipo_p_adicional hide_element pAdic" data-order="7002">
+                                        <label class="input-group-text" >Tipo de ponto</label>
+                                        <select class="form-select" onchange="findAndReplaceVariableForInputValue(event,'tipo_p_adicional')"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{tipo_p_adicional}}"
+                                        >
+                                            <option value="XX" selected>Selecione o tipo de ponto</option>
+                                            <option value="WI_FI">WI_FI</option>
+                                            <option value="TV">TV</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                
+                                <!-- Plano-->
+                                <div class="col-md-6">
+                                    <!-- Plano-->
+                                    <div class="input-group input-group-sm mb-3 in_data plano_atual_cliente hide_element pAdic" data-order="7003">
+                                        <label class="input-group-text" >Plano</label>
+                                        <select class="form-select" onchange="findAndReplaceVariableForInputValue(event,'plano_atual_cliente')"
+                                        data-bs-toggle="tooltip" data-bs-placement="top" title="{{plano_atual_cliente}}"
+                                        >
+                                            <option value="XX" selected>Selecione o plano</option>
+                                            <option value="100 mega">100 mega</option>
+                                            <option value="200 mega">200 mega</option>
+                                            <option value="250 mega">250 mega</option>
+                                            <option value="300 mega">300 mega</option>
+                                            <option value="350 mega">350 mega</option>
+                                            <option value="400 mega">400 mega</option>
+                                            <option value="450 mega">450 mega</option>
+                                            <option value="500 mega">500 mega</option>
+                                            <option value="550 mega">550 mega</option>
+                                            <option value="600 mega">600 mega</option>
+                                            <option value="650 mega">650 mega</option>
+                                            <option value="700 mega">700 mega</option>
+                                            <option value="750 mega">750 mega</option>
+                                            <option value="800 mega">800 mega</option>
+                                            <option value="850 mega">850 mega</option>
+                                            <option value="1 Giga">1 Giga</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Valor do plano atual-->
+                                <div class="col-md-6">
+                                    <!-- Valor do plano atual-->
+                                    <div class="input-group input-group-sm mb-3 in_data valor_plano_atual_cliente hide_element pAdic " data-order="7004">
+                                        <!-- <button onclick="getInputValue(this.parentElement)"
+                                            class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                            </svg>
+                                        </button> -->
+                                        <label class="input-group-text" >Preço do plano atual R$</label>
+                                        <input type="number" min="0"  class="form-control valor_plano_atual_cliente" placeholder="Valor do plano atual"
+                                            aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                            oninput="findAndReplaceVariableForInputValue(event,'valor_plano_atual_cliente')" value="0"
+                                            data-bs-toggle="tooltip" data-bs-placement="top" title="{{valor_plano_atual_cliente}}"
+                                            >
+                                        <!-- <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                            type="button" id="button-addon2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                                class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd"
+                                                    d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                            </svg></i>
+                                        </button> -->
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Configurar roteador ?-->
+                            <div class="input-group input-group-sm mb-3 in_data configurar_roteador hide_element mRede" data-order="7015">
+                                <label class="input-group-text" >Configurar roteador</label>
+                                <select class="form-select" onchange="findAndReplaceVariableForInputValue(event,'configurar_roteador')"
+                                data-bs-toggle="tooltip" data-bs-placement="top" title="{{configurar_roteador}}"
+                                >
+                                    <option value="Sim" >Sim</option>
+                                    <option value="Não" selected>Não</option>
+                                </select>
+                            </div>
+
+                        </div><!-- End Col-->
+
+                        <div class="col-md-6" id="col2">
+                            <!-- Turno agendamento -->
+                            <div class="input-group input-group-sm mb-3 in_data turno_agendado hide_element agend transfEnd  mudCom pAdic mRede venda" data-order="8000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-card-heading" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                                        <path
+                                            d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </button>
+
+
+                                <button type="button"
+                                    class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Manhã'), dispatchEventForInput(this, 'filledInput', 'turno_agendado')">Manhã</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Tarde'), dispatchEventForInput(this, 'filledInput', 'turno_agendado')">Tarde</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Noite'), dispatchEventForInput(this, 'filledInput', 'turno_agendado')">Noite</div>
+                                    </li>
+                                    <li>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Qualquer horário'), dispatchEventForInput(this, 'filledInput', 'turno_agendado')">
+                                            Qualquer horário</div>
+                                    </li>
+                                </ul>
+
+
+                                <input type="text" class="form-control turnoAgendado"
+                                    placeholder="Turno para agendamento" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'turno_agendado')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{turno_agendado}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{turno_agendado}}"
+                                    >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+                            <!-- Disponibilidade geral -->
+                            <div class="input-group input-group-sm mb-3 in_data disponibilidade_geral hide_element agend" data-order="9000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-card-heading" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
+                                        <path
+                                            d="M3 8.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m0-5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5z" />
+                                    </svg>
+                                </button>
+
+
+                                <button type="button"
+                                    class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Toggle Dropdown</span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Manhã'), dispatchEventForInput(this, 'filledInput', 'disponibilidade_geral')">Manhã</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Tarde'), dispatchEventForInput(this, 'filledInput', 'disponibilidade_geral')">Tarde</div>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Noite'), dispatchEventForInput(this, 'filledInput', 'disponibilidade_geral')">Noite</div>
+                                    </li>
+                                    <li>
+                                        <hr>
+                                    </li>
+                                    <li>
+                                        <div class="dropdown-item" href="#"
+                                            onclick="updateInputValue(this, '.input-group', 'Qualquer horário'), dispatchEventForInput(this, 'filledInput', 'disponibilidade_geral')">
+                                            Qualquer horário</div>
+                                    </li>
+                                </ul>
+
+
+                                <input type="text" class="form-control disponibilidade_geral"
+                                    placeholder="Disponibilidade Geral" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1" 
+                                    oninput="findAndReplaceVariableForInputValue(event, 'disponibilidade_geral')"
+
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{disponibilidade_geral}}"
+
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2"
+                                    data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="{{disponibilidade_geral}}"
+                                    >
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <!-- Ponto de referência-->
+                            <div class="input-group input-group-sm mb-3 in_data ponto_de_referencia hide_element transfEnd  mudCom pAdic mRede agend" data-order="10000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control pontoReferencia" placeholder="Ponto de referência"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event, 'ponto_de_referencia')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{ponto_de_referencia}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- melhor turno-->
+                            <div class="input-group input-group-sm mb-3 in_data melhor_turno hide_element" data-order="11000">
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control melhorTurno" placeholder="Melhor turno"
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event,'melhor_turno')">
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- Confirmado por-->
+                            <div class="input-group input-group-sm mb-3 in_data confirmado_disponibilidade hide_element transfEnd " data-order="12000">
+                                <!-- <label for="" class="label-inputs">opcional</label> -->
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control confirDisp"
+                                    placeholder="Confirmado a disponibilidade de conexão no local por: "
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event,'confirmado_disponibilidade')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{confirmado_disponibilidade}}"
+                                    
+                                    >
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+                            <!-- Telefone 1-->
+                            <div class="input-group input-group-sm mb-3 in_data telefone1 hide_element venda " data-order="13000">
+                                <!-- <label for="" class="label-inputs">opcional</label> -->
+                                <button onclick="getInputValue(this.parentElement)"
+                                    class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-down-right-circle" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.854 5.146a.5.5 0 1 0-.708.708L9.243 9.95H6.475a.5.5 0 1 0 0 1h3.975a.5.5 0 0 0 .5-.5V6.475a.5.5 0 1 0-1 0v2.768z" />
+                                    </svg>
+                                </button>
+
+                                <input type="text" class="form-control confirDisp"
+                                    placeholder="Telefone 1 "
+                                    aria-label="Example text with button addon" aria-describedby="button-addon1"
+                                    oninput="findAndReplaceVariableForInputValue(event,'telefone1')">
+                                <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end"
+                                    type="button" id="button-addon2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                                    </svg></i>
+                                </button>
+                            </div>
+
+                            <!-- Data 1-->
+                            <div class="input-group input-group-sm mb-3 in_data data1 hide_element transfEnd mudCom pAdic mRede agend" data-order="14000">
+                                <label class="input-group-text" for="">Data 1</label>
+                                <input type="date" class="form-control data1"
+                                    oninput="findAndReplaceVariableForInputValue(event,'data1')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{data1}}"
+                                    >
+                            </div>
+
+                            <!-- Data 2-->
+                            <div class="input-group input-group-sm mb-3 in_data data2 hide_element transfEnd mudCom pAdic mRede" data-order="15000">
+                                <label class="input-group-text" for="">Data 2</label>
+                                <input type="date" class="form-control data2"
+                                    oninput="findAndReplaceVariableForInputValue(event,'data2')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{data2}}"
+                                    
+                                    >
+                            </div>
+
+                            <!-- Data 3-->
+                            <div class="input-group input-group-sm mb-3 in_data data3 hide_element transfEnd mudCom pAdic mRede" data-order="16000">
+                                <label class="input-group-text" for="">Data 3</label>
+                                <input type="date" class="form-control data3"
+                                    oninput="findAndReplaceVariableForInputValue(event,'data3')"
+                                    
+                                    data-bs-toggle="tooltip" data-bs-placement="top" title="{{data3}}"
+                                    
+                                    >
+                            </div>
+                        
+                        </div><!-- End Col-->
+                    </div> <!-- Showcontent  -->
+                </div> <!-- End endereço--->
+
+            </div><!--row-->
+        </div> <!--end wdg_card_form-->
+    </div><!--End wdg_content_form-->
+
+    <!-- MODELOS PADRÂO -->
+    <div class=" p-2 ">
+        <button class="btn btn-sm btn-success" onclick="getNewScriptModel('faster', this.parentElement.parentElement)">Modelos de preenchimento</button>
+        <span class="novo">Novo</span>
+    </div>
+
+    <!--NOVAS FUNCIONALIDADES-->
+    <div class="input-group input-group-sm mb-3 px-2">
+        <div class="d-flex flex-column btn-group-vertical">
+            <button onclick="getInputValueHTML(this)" class="btn btn-outline-secondary  " type="button"
+                id="button-addon1" data-bs-toggle="tooltip" data-bs-placement="top" title='Copia todo o texto do editor'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-clipboard" viewBox="0 0 16 16">
+                    <path
+                        d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                    <path
+                        d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                </svg>
+            </button>
+
+            <button onclick="eraseContentEditable(this)" class="btn btn-outline-secondary  " type="button"
+                id="button-addon1" data-bs-toggle="tooltip" data-bs-placement="top" title='Apaga todo o conteúdo do editor de texto'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eraser"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm2.121.707a1 1 0 0 0-1.414 0L4.16 7.547l5.293 5.293 4.633-4.633a1 1 0 0 0 0-1.414l-3.879-3.879zM8.746 13.547 3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
+                </svg>
+            </button>
+
+        </div>
+
+
+
+        <!--Editor 	de texto-->
+        <div class="form-control conteiner-text-edit ">
+            <div class="editor_shortcuts_container">
+                <!-- <span class="btn-span-sm">#atalho1</span>  <span class="btn-span-sm">#atalho2</span> -->
+
+            </div>
+
+            <qlk class="wdg_text_area form-control" contenteditable="true" onpaste="removeFormatting(event)"
+                oninput="updateTextArea(this.parentElement)"
+                onkeydown="findAndReplaceShortcutWithTextModel(this.parentElement, event)"
+                onload="updateTextArea(this.parentElement)" type="text"
+                placeholder="Descreva aqui a solicitação do cliente" aria-label="Example text with button addon"
+                aria-describedby="button-addon1"
+				style="margin-left: -1px !important; "
+				></qlk>
+            <textarea type="text" id="request" class="form-control txt_area hide_element" readonly
+                aria-label="Example text with button addon" aria-describedby="button-addon1" style="margin-left: -1px !important; "></textarea>
+
+
+
+                <div class="d-flex flex-wrap justify-content-start wdg_text_edit align-items-center">
+                    <!-- Fonte em negrito -->
+                    <img src="/public/images/font_bold.svg" onclick="document.execCommand('bold', false, '');"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em negrito">
+                
+                    <!-- Fonte em itálico -->
+                    <img src="/public/images/font_italic.svg" onclick="document.execCommand('italic', false, '');"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte em itálico">
+                
+                    <!-- Fonte com sublinhado -->
+                    <img src="/public/images/font_underline.svg" onclick="document.execCommand('underline', false, '');"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Fonte com sublinhado">
+                
+                    <!-- Lista não ordenada (com o comando execCommand) -->
+                    <img src="/public/images/font_list_ul.svg" onclick="document.execCommand('insertUnorderedList', false, null);"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Inserir lista não ordenada">
+                
+                    <!-- Quebra de linha -->
+                    <img src="/public/images/font_break.svg" onclick="document.execCommand('insertHTML', false, '<br>')"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Quebra de linha">
+                
+                    <!-- Linha horizontal -->
+                    <img src="/public/images/font_line.svg" onclick="document.execCommand('insertHorizontalRule', false, null)"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Linha horizontal">
+                
+                    <!-- Alterar cor do texto -->
+                    <img src="/public/images/font_color.svg" onclick="img_onclick(this.parentElement)"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar cor do texto">
+                
+                    <!-- Alterar para código HTML -->
+                    <img src="/public/images/html.svg"
+                         onclick="showHTML(this.parentElement.parentElement, 'txt_area'), useToggle(this, 'checked')"
+                         data-bs-toggle="tooltip" data-bs-placement="top" title="Alterar código HTML">
+                    
+                    <!-- Seletor de cor -->
+                    <input type="color" id="cor" onchange="changeColorEditable(this.parentElement)" width="10px"
+                           style="visibility: hidden;">
+                </div>
+                
+                
+
+        </div><!--Fim editor de texto-->
+
+
+        <div class="d-flex flex-column btn-group-vertical">
+            <button onclick="setContenteditableValue(this)" class="btn btn-outline-secondary  " type="button"
+                id="button-addon2" data-bs-toggle="tooltip" data-bs-placement="top" title='Clique aqui para transferir algum texto que foi copiado'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-arrow-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                </svg>
+            </button>
+
+            <button onclick="addUpdatedValue(this)" class="btn btn-outline-secondary  " type="button"
+                id="button-addon2" data-bs-toggle="tooltip" data-bs-placement="top" title='Copie o texto da fatura no adm partindo da data de vencimento até o valor final atualizado ex: -> 10/10/2024 94,99 97,99 <- e clique no botão para transferir o valor'>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-currency-dollar" viewBox="0 0 16 16">
+                    <path
+                        d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z" />
+                </svg>
+            </button>
+        </div>
+
+
+
+
+    </div><!--Fim funcionalidades-->
+
+    <div class="wdg_card_btn_util">
+        <div class="input-group input-group-sm mb-3 px-2">
+            <button onclick="generateDescription(this)" class="btn btn-outline-dark btn-warning"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Deve utilizada ao abrir o protocolo. Copia o texto até o ponto final(.)'>Desc. resumida(ADM)</button>
+            
+            
+            <button onclick="generateService(this,'service')" class="btn btn-outline-dark btn-warning"
+            type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Deve ser utilizada para gerar uma descrição completa com todas as informações do editor de texto. UTILIZE PARA GERAR A DESCRIÇÂO DE SERVIÇOS'>Desc. completa(ADM)</button>
+        
+            <button onclick="GenerateDefaultText(this)" class="btn btn-outline-dark   btn-warning"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Deve ser utilizada para anexar a informação em visitas técnicas. Gera um script com as informações do formulário e do editor de texto'>
+                Atend. ADM
+            </button>
+            
+        </div>  
+
+        <div class="input-group input-group-sm mb-3 px-2">
+            <button onclick="GenerateDefaultTextNoTags(this)" class="btn btn-outline-dark text-white btn-danger"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Deve ser utilizada para anexar a informação no SALES FORCE. Gera um script com as informações do formulário e do editor de texto'>
+                Atend. SALES FORCE
+            </button>
+
+            <button onclick="salvar_pendencia(this)" class="btn btn-select btn-outline-dark"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Deixa o protocolo pendente para outra pessoa dar continuidade'>
+                Pendente
+            </button>
+        
+            
+            <button onclick="populateFields(this)" class="btn btn-select btn-outline-dark enable-chat bt-povoar-chat"
+                type="button" data-bs-toggle="tooltip" data-bs-placement="top" title='Transfere as informações do Omini para o formulário'>
+                Preencher
+            </button>
+        </div>
+
+
+</div>
+
+
+
+	

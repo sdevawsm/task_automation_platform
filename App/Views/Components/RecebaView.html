@@ -1,0 +1,166 @@
+
+
+
+<!-- outros links ... -->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Qlpq3qig9rQr90y6f+7aPmW/UcKf/4+lAg1Q4WnXsDvA/ahlsJfMn/wjW1+x8ltv" crossorigin="anonymous">
+<script src="https://unicons.iconscout.com/release/v4.0.0/script/line.js"></script>
+<!-- outros links ... -->
+
+
+<style>
+	.card {
+		margin-bottom: 20px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	.descricao-container {
+		max-height: 200px;
+		overflow-y: auto;
+		padding: 10px;
+		border: 1px solid #dee2e6;
+		border-radius: 5px;
+		background-color: #f8f9fa;
+		margin: 10px 0;
+	}
+	.descricao-item {
+		padding: 8px;
+		border-bottom: 1px solid #dee2e6;
+		margin-bottom: 8px;
+	}
+	.descricao-item:last-child {
+		border-bottom: none;
+	}
+	.usuario-info {
+		font-size: 0.8em;
+		color: #6c757d;
+	}
+	.btn-group-sm {
+		margin-top: 5px;
+	}
+	.card-actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 5px;
+		margin-top: 10px;
+	}
+	.card-actions .btn {
+		flex: 1;
+		min-width: 100px;
+		margin: 0;
+	}
+	@media (max-width: 992px) {
+		.col-md-4 {
+			width: 50%;
+		}
+	}
+	@media (max-width: 768px) {
+		.col-md-4 {
+			width: 100%;
+		}
+		.card-actions {
+			flex-direction: column;
+		}
+		.card-actions .btn {
+			width: 100%;
+			margin-bottom: 5px;
+		}
+	}
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.5);
+		display: none;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+	}
+	.overlay-content {
+		background: white;
+		padding: 20px;
+		border-radius: 5px;
+		text-align: center;
+		width: 300px;
+	}
+
+	.receba-container{
+		/*background-color: #EAEAEA;*/
+		background-color: rgba(234, 234, 234, 0.5); /* Cor de fundo com transparência */
+		border-radius: 05px;
+		padding:  3px 10px;
+		color: #212529;
+      	backdrop-filter: blur(10px); /* Efeito de desfoque no fundo (glassmorphism) */
+	}
+
+</style>
+
+
+<div class="overlay" id="loadingOverlay">
+	<div class="overlay-content">
+		<div class="spinner-border text-primary mb-3" role="status">
+			<span class="visually-hidden">Carregando...</span>
+		</div>
+		<h5>Processando...</h5>
+		<div class="progress">                
+			<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 100%"></div>
+		</div>
+		<div id='imagem_luva'> <img src="orderImages/receba_img.jpg" alt="Receba" width="100%"> </div>                
+	</div>
+</div>
+
+<div class="container mt-4 receba-container " >
+	<!-- <h2 class="text-center mb-4">🛵📦 Sistema de Encomendas</h2> -->
+	<h2 class="text-center mb-4">  📦      
+	</h2>
+	<audio id="audioReceba" src="orderImages/receba.mp3" preload="auto"></audio>
+
+	
+
+	<div class="row mb-4">
+		<div class="col-md-8 mx-auto">
+			<div class="card">
+				<div class="card-body">
+					<h5 class="card-title">🆕 Nova Encomenda</h5>
+					<div class="mb-3">
+						<label for="pedidoInput" class="form-label">Descrição da Encomenda</label>
+						<input type="text" id="pedidoInput" class="form-control" placeholder="Digite a descrição da encomenda">
+					</div>
+					<button class="btn btn-primary" onclick="adicionarPedido()">Cadastrar Encomenda 📦</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<ul class="nav nav-tabs mb-3">
+		<li class="nav-item">
+			<button class="nav-link active" onclick="mostrarArea('pedidos')">Encomendas Ativas</button>
+		</li>
+		<li class="nav-item">
+			<button class="nav-link" onclick="mostrarArea('arquivados')">Encomendas Arquivadas</button>
+		</li>
+	</ul>
+
+	<div id="pedidos" class="mt-3">
+		<div class="row" id="pedidoGrid"></div>
+	</div>
+
+	<div id="arquivados" class="mt-3" style="display: none;">
+		<div class="row" id="pedidoArquivadoGrid"></div>
+	</div>
+</div>
+
+
+
+
+
+
+
+<script src="/public/js/WidgetTextEditView.js"></script>
+<script src="/public/js/app.js"></script>
+
+<script src="/public/js/Receba.js"></script>
+
+ 

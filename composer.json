@@ -1,0 +1,32 @@
+{
+    "name": "silvadevbr/auxiliar-tools",
+    "description": "Auxiliar tools for internals process",
+
+    "license": [
+        "LGPL-2.1-only",
+        "GPL-3.0-or-later"
+    ], 
+
+    "require": {
+        "phpmailer/phpmailer": "^6.8",
+        "cboden/ratchet": "^0.4.4"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "App\\": "App/",
+            "MF\\": "vendor/MF/",
+            "Ratchet\\": "vendor/ratchet/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "Silva  devbr",
+            "email": "silvadevbr@outlook.com",
+            "homepage": "https://www.youtube.com/@followthebits01",
+            "role": "Developer"
+        }
+    ]
+
+}

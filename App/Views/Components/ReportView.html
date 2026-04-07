@@ -1,0 +1,190 @@
+
+
+<style>
+    .table_relatorio{
+    background-color: rgba(234, 234, 234, 0.5); /* Cor de fundo com transparência */
+    border-radius: 05px;
+    padding:  3px 10px;
+    color: #212529;
+    margin-bottom: 20px;
+    break-inside: avoid;
+    margin: 5px;
+    backdrop-filter: blur(10px); 
+    }
+</style>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela com Filtros e Paginação</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5 m-auto table_relatorio">
+        <h2 class="mb-4">Tabela com Filtros e Paginação</h2>
+
+        
+
+        <div class="mb-3">
+            <input type="text" id="inputFilterUser" class="form-control" placeholder="Filtrar por usuário...">
+            <input type="date" id="inputFilterDate" class="form-control mt-2" placeholder="Filtrar por data...">
+            <button id="btnBuscarPendencias" class="btn btn-primary mt-2">Buscar Pendências</button>
+        </div>
+
+        <button id="btnPrevious">Anterior</button>
+        <button id="btnNext">Próximo</button>
+
+        <table id="example" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ADM</th>
+                    <th>Chat</th>
+                    <th>Data de Adição</th>
+                    <th>Hora</th>
+                    <th>Descrição</th>
+                    <th>Usuário</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+                <tr>
+                    <td>12345</td>
+                    <td>67890</td>
+                    <td>2025-01-17</td>
+                    <td>2025-01-17</td>
+                    <td>Descrição detalhada do protocolo ADM...</td>
+                    <td>Usuário</td>
+                    <td><button class="btn btn-danger btn-sm">Excluir</button></td>
+                </tr>
+                <!-- Adicione mais linhas conforme necessário -->
+            </tbody>
+        </table>
+    </div>
+
+    
+
+</body>
+</html>
+
+
+
+<script>
+    // Variáveis globais para rastrear o estado da página atual
+    let currentPage = 1;
+    let currentUser = 'all';  // Usuário atual (você pode ajustá-lo conforme necessário)
+
+    // Função para buscar todos os pendentes
+    async function getAllPending(user = 'all', page = 1, date = undefined) {
+        currentUser = user;  // Atualize o usuário atual
+        console.log("get Pendences");
+
+        var url = '/protpendentes?page=' + page;
+        var postData = {
+            user: user
+        };
+
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(postData)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const result = await response.json();
+            console.log("Result:", result); // Log do resultado para depuração
+
+            if (result.status === 'success') {
+                if (Array.isArray(result.pending)) {
+                    console.log("Pending array:", result.pending); // Log do array pending para depuração
+                    populateTablePendingContainer(result.pending);
+                } else {
+                    console.error("Formato inesperado: 'pending' não é um array.");
+                }
+            } else if (result.status === 'error') {
+                console.error("Erro:", result.pending);
+            } else {
+                console.error("Formato de resposta inesperado.");
+            }
+        } catch (error) {
+            console.error("Erro ao buscar os alarmes:", error);
+        }
+    }
+
+    // Função para popular a tabela com dados
+    function populateTablePendingContainer(data) {
+        console.log("Populando tabela com dados:", data); // Log dos dados recebidos para depuração
+        var tableBody = document.getElementById('tableBody');
+        tableBody.innerHTML = '';
+        data.forEach(function(item) {
+            var row = document.createElement('tr');
+            row.setAttribute('data-bs-toggle', 'tooltip');
+            row.setAttribute('data-bs-placement', 'top');
+            row.setAttribute('title', item.description);
+
+            row.innerHTML = `
+                <td>${item.adm_protocol}</td>
+                <td>${item.number_protocol}</td>
+                <td>${item.date}</td>
+                <td>${item.time}</td>
+                <td style="max-width: 50ch;">
+                    <div style="max-height: 100px; overflow: auto;">
+                        ${item.description}
+                    </div>
+                </td>
+                <td>${item.name}</td>
+                <!-- <td><button class="btn btn-danger btn-sm">Excluir</button></td> -->
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Função para buscar pendências
+    function buscarPendencias() {
+        var date = document.getElementById('inputFilterDate').value || undefined;
+        var user = document.getElementById('inputFilterUser').value || 'all';
+
+        console.log("User" + user)
+        console.log("date" + date)
+
+        currentPage = 1;  // Redefina para a primeira página
+        getAllPending(user, currentPage, date);
+    }
+
+    // Eventos de clique para botões "Próximo" e "Anterior"
+    document.getElementById('btnNext').addEventListener('click', function() {
+        currentPage++;
+        getAllPending(currentUser, currentPage);
+    });
+
+    document.getElementById('btnPrevious').addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            getAllPending(currentUser, currentPage);
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var table = document.getElementById('example');
+        // Configurações adicionais para a tabela, se necessário
+
+        document.getElementById('btnBuscarPendencias').addEventListener('click', function() {
+            buscarPendencias();
+        });
+    });
+
+
+</script>
+
+

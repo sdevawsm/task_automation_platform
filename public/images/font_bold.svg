@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="17.837109mm"
+   height="23.529587mm"
+   viewBox="0 0 17.837109 23.529587"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2">
+    <rect
+       x="174.40804"
+       y="836.87146"
+       width="504.03397"
+       height="166.69234"
+       id="rect2496" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-45.436975,-223.14004)">
+    <g
+       id="g2577">
+      <rect
+         style="opacity:0;fill:#4d4d4d;fill-opacity:1;stroke-width:0.23759"
+         id="rect2502"
+         width="17.837111"
+         height="23.529587"
+         x="45.436974"
+         y="223.14005"
+         ry="0" />
+      <text
+         xml:space="preserve"
+         transform="matrix(0.26458333,0,0,0.26458333,-0.71807422,-0.56033169)"
+         id="text2494"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:96px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Semi-Bold';white-space:pre;shape-inside:url(#rect2496);opacity:1;fill:#4d4d4d;fill-opacity:1"><tspan
+           x="174.4082"
+           y="924.21911"
+           id="tspan2729">B</tspan></text>
+    </g>
+  </g>
+</svg>

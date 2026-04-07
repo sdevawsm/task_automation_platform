@@ -1,0 +1,138 @@
+<style>
+    /* Community.css */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 10px;
+    overflow: hidden;
+    width: calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Necessário para o selo de verificação */
+}
+
+.card img.profile-img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 10px;
+    position: relative; /* Define a posição de referência para o selo */
+}
+
+
+/* Outras classes */
+.card-title {
+    font-size: 1.25em;
+    margin: 10px 0;
+}
+
+.card-text {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #1DA1F2;
+    margin: 0 5px;
+}
+
+.pagination {
+    margin-top: 20px;
+}
+
+.page-item {
+    display: inline;
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #1DA1F2;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    font-weight: bold;
+    color: #004499;
+}
+
+.verified-badge {
+    position: absolute;
+    width: 28.8px; /* Aumento de 20% para destacar */
+    height: 28.8px;
+    bottom: 15px;
+    right: 15px;
+    transform: translate(50%, 50%);
+    background-color: transparent;
+    /* border: 2px solid #fff; */ /* Borda branca para melhor contraste */
+    border-radius: 50%; /* Deixa o selo redondo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Sombra sutil para dar profundidade */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transição suave para efeito hover */
+}
+
+/* Efeito ao passar o mouse */
+.verified-badge:hover {
+    transform: translate(50%, 50%) scale(1.1); /* Leve crescimento */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Aumenta a sombra */
+}
+
+/* Animação de pulsação sutil */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.9;
+    }
+}
+
+.verified-badge {
+    animation: pulse 2s infinite; /* Adiciona a animação de pulsação */
+}
+
+
+
+</style>
+
+
+    <div class="container">
+        <div id="user-cards" class="row"></div>
+        <nav>
+            <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+    </div> 
+
+ 
+<script src="public/js/Community.js"></script>
+    
+ 
+<!-- https://images.pexels.com/photos/2781760/pexels-photo-2781760.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg
+https://images.pexels.com/photos/2670898/pexels-photo-2670898.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/459203/pexels-photo-459203.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/1450360/pexels-photo-1450360.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/1643403/pexels-photo-1643403.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/33545/sunrise-phu-quoc-island-ocean.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1
+https://images.pexels.com/photos/2834219/pexels-photo-2834219.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->

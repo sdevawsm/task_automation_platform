@@ -1,0 +1,837 @@
+
+
+
+<!-- outros links ... -->
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-Qlpq3qig9rQr90y6f+7aPmW/UcKf/4+lAg1Q4WnXsDvA/ahlsJfMn/wjW1+x8ltv" crossorigin="anonymous">
+<script src="https://unicons.iconscout.com/release/v4.0.0/script/line.js"></script>
+<!-- outros links ... -->
+
+
+<!-- <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+	<button type="button" class="btn  btn-warning  border" onclick="addService()">Adicionar Atendimento</button>
+	<button type="button" class="btn  btn-warning  border" onclick="addLGPD()">Adicionar LGPD</button>
+	<button type="button" class="btn  btn-warning  border" onclick="addShortShortcut() ">Adicionar Atalhos curtos</button>
+	<button type="button" class="btn  btn-warning  border" onclick="addScriptTemplates() ">Adicionar Modelos de Script</button>
+	<button type="button" class="btn  btn-warning  border" onclick="addNoc()">Adicionar Padrão NOC</button>
+	<button type="button" class="btn  btn-warning  border" onclick="addFinanceiro()">Script Financeiro</button>
+</div>
+-->
+
+<!--<div class="d-flex justify-content-center align-items-center">
+    <div class="fluent-card p-4 rounded shadow">
+        <button type="button" class="btn btn-fluent-primary border-0 shadow" onclick="showApps()">Adicionar Apps</button>
+    </div>
+</div>
+
+<hr>-->
+
+<!-- <script>
+
+
+	checkSession()
+
+	(async () => {
+		// Aguarda 5 segundos antes de iniciar
+		await new Promise(resolve => setTimeout(resolve, 5000));
+		await checkSession(); // Chamada inicial
+
+		// Reexecuta a cada 1 minuto
+		setInterval(() => {
+			checkSession();
+		}, 180000);
+	})();
+
+
+	async function checkSession() {
+		const url = `/issessionactive`;
+
+		console.log('fsfskfjsdlfjsçfjksçdfjksçfdjçdjç')
+
+		try {
+			const response = await fetch(url, { method: 'GET' });
+			const data = await response.json();
+
+			if (data.status !== 'success' || data.message !== 'Logado') {
+				console.warn('Sessão inválida. Redirecionando...');
+				window.location.href = '/';
+			} else {
+				console.log('Sessão válida:', data.message);
+			}
+		} catch (error) {
+			console.error('Erro ao verificar a sessão:', error);
+			window.location.href = '/'; // Redireciona também em caso de falha na requisição
+		}
+	}
+
+</script> -->
+
+
+<!-- <div class="wdg_content wdg_window wdg_window_50 mb-3 item" draggable="true"> -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start wdg_content_atendimento" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+		<h6 id="archor_text_editor">ATENDIMENTO</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 80px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg>
+		  </div>
+		</div>
+
+	</nav>
+
+	<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+		<button type="button" class="btn  btn-primary btn_for_enable_phone_form" onclick="enablePhoneForm(), saveChatStatus('disable')">Telefone</button>
+		<button type="button" class="btn btn-outline-primary btn-hover btn_for_enable_chat_form" onclick="enableChatForm(), saveChatStatus('enable')">Chat</button>
+	</div>
+
+	<!-- <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+		<input type="checkbox" class="btn-check btn_for_enable_phone_form" name="btnradio" id="btnradio1" autocomplete="off" >
+		<label class="btn btn-outline-primary btn-hover" for="btnradio1" onclick="enablePhoneForm(), saveChatStatus('disable')">Telefone</label>
+	  
+		<input type="checkbox" class="btn-check btn_for_enable_chat_form" name="btnradio" id="btnradio2" autocomplete="off">
+		<label class="btn btn-outline-primary btn-hover" for="btnradio2" onclick="enableChatForm(), saveChatStatus('enable')">chat</label>
+	</div> -->
+
+	<div class="block-container">
+		
+	</div>
+
+	<div class="column my-3 ">
+
+	
+		<div class="wdg_add_card" onclick="addTextEditTags(this.parentElement, this)">
+			+ ADICIONAR BLOCO
+		</div>
+	</div>
+</div>
+
+
+<!-- LGPd -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start wdg_content_lgpd" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+		<h6 id="archor_lgpd">LGPD</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 80px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de formulário LGPD excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg>
+		  </div>
+		</div>
+	</nav>
+
+	<div class="wdg_card my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6 >
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+					<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z"/>
+				</svg>
+				  Transfira as informações
+			</h6>
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent content_lgpd_card">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input  oninput="updateTextModelLGPD(event)" type="text" class="form-control phone" placeholder="Telefone 01"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<!-- <button onclick="fillInFields(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button> -->
+							</div>
+
+							<div class="input-group input-group-sm mb-3">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input  oninput="updateTextModelLGPD(event)" type="text" class="form-control phone" placeholder="Telefone 02"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<!-- <button onclick="fillInFields(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg>
+								</button>   -->
+							</div>
+
+							<div class="input-group input-group-sm mb-3">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="updateTextModelLGPD(event)" type="text" class="form-control phone" placeholder="Telefone 03"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<!-- <button onclick="fillInFields(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button> -->
+							</div>
+						</div>
+
+
+						<div class="col-md-6">
+							<div class="input-group input-group-sm mb-3">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input  oninput="updateTextModelLGPD(event)" type="text" class="form-control phone" placeholder="Telefone 04"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<!-- <button onclick="fillInFields(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button> -->
+							</div>
+
+							<div class="input-group input-group-sm mb-3">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="updateTextModelLGPD(event)"   type="text" class="form-control email" placeholder="E-mail"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<!-- <button onclick="fillInFields(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button> -->
+							</div>
+						</div><!--End row 6-->
+					</div><!--row-->
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+			
+
+			<div class="wdg_card_btn_util">
+				<div class="row">
+					<div class="input-group input-group-sm mb-3">
+						<span class="input-group-text" id="inputGroup-sizing-sm">Modelo</span>
+						<textarea class="form-control model_lgpd" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"></textarea>
+					</div>
+		
+	
+					<div class="input-group input-group-sm mb-3">
+						<button onclick="getLgpdDefaultText(this)" class="btn btn-outline-secondary " type="button">Copiar modelo</button>
+						<button onclick="clearContainer(this)"  class="btn btn-outline-secondary" type="button">Apagar preenchimento</button>
+						<button onclick="fillInTheFieldsLgpd(this)"  class="btn btn-outline-secondary btn_set_text_lgpd"  type="button">Preencher</button>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div><!--End wdg_card-->
+</div>
+
+<!-- ATALHOS RÁPIDOS -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start wdg_content_atalhos_rapidos" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+		<h6 id="archor_small_shortcut">ATALHOS CURTOS</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 80px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de botões de atalho excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg>
+		  </div>
+		</div>
+	</nav>
+
+	<!-- <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+		<button type="button" class="btn  btn-primary " onclick="">Padrão</button>
+		<button type="button" class="btn btn-outline-primary btn-hover " onclick=""">Pessoal</button>
+	</div> -->
+
+	<div class="wdg_card wdg_shortcut my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+				</svg>
+				Exibir scripts curtos
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="getShortcuts(), populateShortcuts(this)"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg>
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), populateShortcuts(this)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element" >
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="wdg_content_form "> <!--novos formulários podem ser adicionados aqui-->
+						<div  class="row btn-shortcuts overflow-auto rowShortcuts">
+							<!-- <div class="input-group input-group-sm">
+								<input type="button" class="form-control btn btn-primary my-1" aria-label="Text input with segmented dropdown button" value="Crie o seu atalho rápido">
+								
+								<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split my-1" data-bs-toggle="dropdown" aria-expanded="false">
+								  <span class="visually-hidden">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu dropdown-menu-end">
+								  <li><a class="dropdown-item" href="/update?tb=shortcuts">Editar</a></li>
+								  <li><button class="dropdown-item" href="#">Excluir</button></li>
+								</ul>
+							</div> -->
+
+						</div>
+					</div>
+				</div> <!--End wdg_card_form-->
+			</div><!--End wdg_content_form-->
+				
+
+		</div><!--End showContent-->
+
+	</div><!--End wdg_card-->
+	
+</div>
+
+<!-- MODELOS DE SCRIPT -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start script_models  wdg_content_script_models" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+		<h6 id="archor_text_models">MODELOS DE SCRIPT</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 80px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de modelos de script excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg>
+		  </div>
+		</div>
+	</nav>
+
+	<!-- <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+		<button type="button" class="btn  btn-primary " onclick="">Padrão</button>
+		<button type="button" class="btn btn-outline-primary btn-hover " onclick=""">Pessoal</button>
+	</div> -->
+
+
+	<div class="wdg_card show_text_template my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-text-window-reverse" viewBox="0 0 16 16">
+					<path d="M13 6.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm0 3a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
+					<path d="M14 0a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12zM2 1a1 1 0 0 0-1 1v1h14V2a1 1 0 0 0-1-1H2zM1 4v10a1 1 0 0 0 1 1h2V4H1zm4 0v11h9a1 1 0 0 0 1-1V4H5z"/>
+				  </svg>
+				Exibir modelos de script
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="getScriptsByDefault(), addTexplateModelsWithShortCutsOnContainer(this)"  xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 15 15">
+					<path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 0 0-.908-.417A6 6 0 1 0 8 2v1z"/>
+					<path d="M8 4.466V.534a.25.25 0 0 0-.41-.192L5.23 2.308a.25.25 0 0 0 0 .384l2.36 1.966A.25.25 0 0 0 8 4.466z"/>
+				</svg>
+
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement), addTemplateModelsWithShortCutsOnContainer(this)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent hide_element" >
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="my-2 row searchOptions">
+						<div class="col-md-6 my-3">
+							<select class="form-select selectGroupCategory" aria-label="Default select example" onchange="filterTexModelsByOption(this)">
+								<option  selected>Todas as respostas</option>
+							</select>
+						</div>
+
+						<div class="col-md-6 my-3">
+							<div class="d-flex" role="search">
+								<input class="form-control me-2" type="search" placeholder="Digite aqui sua pesquisa" aria-label="Search"
+								oninput="filterTexModelsBySearch(this.parentElement)">
+								<button class="btn btn-outline-success" onclick="filterTexModelsBySearch(this.parentElement)">Pesquisar</button>
+							</div>
+						</div>
+					</div>
+					<div class="row overflow-auto conteiner_text_models">
+						
+						
+
+						
+
+					</div><!--Endrow-->
+
+					
+				</div> <!--End wdg_card_form-->
+			</div><!--End wdg_content_form-->
+				
+
+		</div><!--End showContent-->
+
+	</div><!--End wdg_card-->
+	
+</div>
+
+<!-- PADRÂO ROMPIMENTO DE CABOS-->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start wdg_content_script_noc" >
+	<nav class="d-flex justify-content-between align-items-center">
+		<img src="/public/images/maximize.svg" width="12px" class="hide_element_visibility">
+		<h6 id="archor_default_noc">PADRÃO NOC</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 80px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de formulário de verificação com a supervisão ou NOC excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg>
+		  </div>
+		</div>
+	</nav>
+
+	<div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+		<!-- <button type="button" class="btn  btn-primary btn_for_enable_noc_form" onclick=" enableRompimentoCabosForm(), getNocDefaultText(this)"">Rompimento de cabos</button>
+		<button type="button" class="btn btn-outline-primary btn-hover btn_for_enable_financeiro_form" onclick="enableNocForm(), getNocDefaultText(this)">padrão Noc</button> -->
+		<button type="button" class="btn  btn-primary btn_for_enable_rompimento_form" onclick="enableRompimentoCabosForm(), getNocDefaultText(this)">Rompimento de cabos</button>
+		<button type="button" class="btn btn-outline-primary btn-hover btn_for_enable_noc_form" onclick="enableNocForm(), getNocDefaultText(this)">padrão Noc</button>
+		<button type="button" class="btn btn-outline-primary btn-hover btn_for_enable_financeiro_form" onclick="enableFinanceiroForm(), getNocDefaultText(this)">Financeiro</button>
+	</div>
+
+	<div class="wdg_card my-3"> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6 >
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-file-earmark-ruled" viewBox="0 0 16 16">
+					<path d="M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 3A1.5 1.5 0 0 0 11 4.5h2V9H3V2a1 1 0 0 1 1-1h5.5v2zM3 12v-2h2v2H3zm0 1h2v2H4a1 1 0 0 1-1-1v-1zm3 2v-2h7v1a1 1 0 0 1-1 1H6zm7-3H6v-2h7v2z"/>
+				</svg>
+				  Transfira as informações
+			</h6>
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+					</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent">
+
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<!---FHTT--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)"  type="text" class="form-control fhtt" placeholder="FHTT/ALCL"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+							<!---Usuário--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento enable-financeiro">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)"   type="text" class="form-control user" placeholder="Usuário"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg>
+								</button>  
+							</div>
+							<!---Cidade--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)"  type="text" class="form-control city" placeholder="Cidade"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+							<!---Autenticação--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)" type="text" class="form-control authentication" placeholder="Autenticação"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+							<!---Plano--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)"   type="text" class="form-control user_plan" placeholder="Plano"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+
+							<!---Protocolo--->
+							<div class="input-group input-group-sm mb-3 enable-financeiro hide_element">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input   oninput="getNocDefaultText(this)" type="text" class="form-control protocol" placeholder="Protocolo"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+
+						</div>
+
+						
+						<div class="col-md-6">
+							<!---Nome--->
+							<div class="input-group input-group-sm mb-3 enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input oninput="getNocDefaultText(this)"   type="text" class="form-control name" placeholder="Nome"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+
+							<!---Telefone--->
+							<div class="input-group input-group-sm mb-3 enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input  oninput="getNocDefaultText(this)"  type="text" class="form-control phone" placeholder="Telefone"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+
+							<!---Endereço--->
+							<div class="input-group input-group-sm mb-3 enable-rompimento">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<input   oninput="getNocDefaultText(this)" type="text" class="form-control address" placeholder="Endereço"
+									aria-label="Example text with button addon" aria-describedby="button-addon1">
+								<button onclick="setInputValue(this), getNocDefaultText(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button>
+							</div>
+
+							<!---Risco--->
+							<div class="input-group input-group-sm mb-3 enable-rompimento">
+								<label class="input-group-text" for="selectTxtRisk">Há risco?</label>
+								<select class="form-select selectTxtRisk" id="selectTxtRisk" onchange="getNocDefaultText(this)">
+								  <option value="Sim"  >Sim</option>
+								  <option value="Não" selected>Não</option>
+								</select>
+							</div>
+
+							<!---Cabo Drop--->
+							<div class="input-group input-group-sm mb-3 enable-rompimento">
+								<label class="input-group-text" for="selectTxtRisk">Cabo DROP?</label>
+								<select class="form-select selectTxtDrop" id="selectTxtRisk" onchange="getNocDefaultText(this)">
+								  <option value="Sim"  >Sim</option>
+								  <option value="Não" selected>Não</option>
+								</select>
+							</div>
+
+							<!---Motivo--->
+							<div class="input-group input-group-sm mb-3 enable-noc enable-rompimento enable-financeiro">
+								<button onclick="getInputValue(this.parentElement)"
+									class="btn btn-outline-secondary rounded-start" type="button" id="button-addon1">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-clipboard" viewBox="0 0 16 16">
+										<path
+											d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+										<path
+											d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+									</svg>
+								</button>
+
+								<textarea oninput="getNocDefaultText(this)"  type="text" class="form-control reason" placeholder="Motivo"
+									aria-label="Example text with button addon" aria-describedby="button-addon1"></textarea>
+								<!-- <button onclick="setInputValue(this)" class="btn btn-outline-secondary rounded-end" type="button" id="button-addon2">
+									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+										class="bi bi-arrow-right" viewBox="0 0 16 16">
+										<path fill-rule="evenodd"
+											d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+									</svg></i>
+								</button> -->
+							</div>
+
+							
+
+						</div><!--End row 6-->
+				</div><!--row-->
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+
+			
+
+			<div class="wdg_card_btn_util">
+				<div class="row">
+					<div class="input-group input-group-sm mb-3">
+						<span class="input-group-text" id="inputGroup-sizing-sm">Modelo</span>
+						<textarea class="form-control model_noc" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">Preencha os campos acima 
+						</textarea>
+					</div>
+		
+	
+					<div class="input-group input-group-sm mb-3">
+						<button onclick="getNocDefaultText(this), setNocDefaultText(this)" class="btn btn-outline-secondary" type="button">Copiar modelo</button>
+						<!-- <button onclick="getNocDefaultText(this)" class="btn btn-outline-secondary" type="button">Atualizar</button> -->
+						<!-- <button onclick="getLgpdDefaultText(this)" class="btn btn-outline-secondary" type="button">Preencher</button> -->
+						<button onclick="clearContainer(this)"  class="btn btn-outline-secondary" type="button">Apagar preenchimento</button>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+
+	</div><!--End wdg_card-->
+</div>
+
+
+
+
+
+
+
+<script src="/public/js/WidgetTextEditView.js"></script>
+<script src="/public/js/app.js"></script>
+
+ 

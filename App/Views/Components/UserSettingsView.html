@@ -1,0 +1,400 @@
+
+
+<div class="menu">
+    <ul>
+        <li onclick="enable_card_visibility('user_settings', this)"  class="btn-fluent-primary">Configuração de usuário</li>
+		<li onclick="enable_card_visibility('adm_settings', this)"  class="btn-fluent-primary">Configuração do ADM</li>
+        <li onclick="enable_card_visibility('keys_settings', this)" class="btn-fluent-primary btn-warning">Chaves de ativação</li>
+		
+		<li onclick="enable_card_visibility('theme_settings', this)" class="btn-fluent-primary">Temas e cores</li>
+        <li onclick="enable_card_visibility('script_models', this)" class="btn-fluent-primary">Modelos de script</li>
+
+		<li onclick="enable_card_visibility('short_text_models', this)" class="btn-fluent-primary">Atalhos rápidos</li>
+          <li onclick="enable_card_visibility('alarm_settings', this)" class="btn-fluent-primary">Alarmes</li>  
+
+		<li onclick="enable_card_visibility('suport_and_suggestions', this)" class="btn-fluent-primary">Suporte e Sugestões</li>
+
+    </ul>
+</div>   
+
+
+<style>
+    .menu {
+        text-align: center;
+        margin: 20px;
+    }
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .menu li {
+        display: inline-block;
+        margin: 0 15px;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+
+</style>
+
+
+
+
+<!-- CONFIGURAÇÕES DE USUÁRIO -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start user_settings hide_element">
+	<nav class="d-flex justify-content-between align-items-center">
+		<img class="hide_element_visibility" src="/public/images/maximize.svg" width="12px">
+		<h6>CONFIGURAÇÃO DE USUÁRIO</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color ">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+	</nav>
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+					class="bi bi-plus-circle" viewBox="0 0 16 16">
+					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+					<path
+						d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+				</svg>
+
+				Configurar perfil de usuário
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)"
+					xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<div class="showContent ">
+			<div class="wdg_content_form"> <!--novos formulários podem ser adicionados aqui-->
+				<div class="wdg_card_form container-fluid">
+					<div class="row ">
+						<!-- <img src="/public/images/profile/_3602adcf-4258-484d-9bd2-e9ea7157bd97.jpg" class="rounded-circle mx-auto d-block " alt="Foto de perfil" style="width: 200px; height: 200px; border: solid 5px gray;" /> -->
+						<div class="photo_profile">
+							<div class="rounded-circle mx-auto img d-block position-relative" style="background-image: url('{{photo_profile}}');"> 
+								{{verification_seal}}
+							</div>
+						</div>
+
+						<div>
+							<span class="d-block text-center w-100 my-3">
+								Ativa até {{final_activation_date}}
+							</span>
+						</div>
+						
+
+						<div class="mb-3">
+							<label for="profilePicture" class="form-label">Foto de perfil</label>
+
+							<div class="input-group input-group-sm ">
+								{{img_profile_edit}}
+
+								<div class="input-group input-group-sm mt-3 img_ext in_inputs input_active">
+									<input readonly="" type="text" class="form-control editField" id="image_bg" placeholder="Cole o link de uma imagem">
+									<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+									<button class="btn btn-outline-secondary" type="button" onclick="setProfileBackgroundImage(this.parentElement, 'Profile')">Salvar</button>
+								</div>
+
+							</div>
+
+						</div>
+
+						<div class="mb-3">
+							<label for="name" class="form-label">Usuário</label>
+							<div class="input-group input-group-sm">
+								<input readonly type="text" class="form-control editField" id="name" placeholder="Seu usuário" value="{{user}}" pattern="[a-zA-Z0-9]+">
+								<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+								<button class="btn btn-outline-secondary" type="button" onclick="updateUsername(this.parentElement)">Salvar</button>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="name" class="form-label">Nome</label>
+							<div class="input-group input-group-sm">
+								<input readonly type="text" class="form-control inputName editField" id="name" placeholder="Seu nome" value="{{name}}" pattern="[a-zA-Z0-9]+">
+								<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+								<button class="btn btn-outline-secondary" type="button" onclick="updateName(this.parentElement)">Salvar</button>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="email" class="form-label">E-mail</label>
+							<div class="input-group input-group-sm">
+								<input readonly type="email" class="form-control editField" id="email" placeholder="name@example.com" value="{{email}}" pattern="[a-zA-Z0-9]+">
+								<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+								<button class="btn btn-outline-secondary" type="button" onclick="updateEmail(this.parentElement)">Salvar</button>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="password" class="form-label">Senha</label>
+							<div class="input-group input-group-sm">
+								<input readonly type="password" class="form-control profile_pass editField" id="password" placeholder="Senha" value="{{password}}" pattern="[a-zA-Z0-9]+">
+								<button class="btn btn-outline-secondary" type="button" onclick="showPassProfile(this.parentElement)">Mostrar</button>
+								<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+								<button class="btn btn-outline-secondary" type="button" onclick="updatePassword(this)">Salvar</button>
+							</div>
+						</div>
+
+
+					</div> <!-- row--->
+
+				</div> <!--end wdg_card_form-->
+			</div><!--End wdg_content_form-->
+		
+		</div>
+	</div><!--End wdg_card-->
+</div>
+
+
+<!-- Configuração de thema e cores -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start theme_settings hide_element">
+	<nav class="d-flex justify-content-between align-items-center">
+		<img class="hide_element_visibility" src="/public/images/maximize.svg" width="12px">
+		<h6>CONFIGURAÇÃO DE TEMAS E CORES</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+	</nav>
+
+	<div class="wdg_card"> <!--Card-->
+		<header class="d-flex justify-content-between"><!--Cabeçalho-->
+			<h6 class="d-flex align-items-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-card-image" viewBox="0 0 16 16">
+					<path d="M6.002 5.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/>
+					<path d="M1.5 2A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2zm13 1a.5.5 0 0 1 .5.5v6l-3.775-1.947a.5.5 0 0 0-.577.093l-3.71 3.71-2.66-1.772a.5.5 0 0 0-.63.062L1.002 12v.54L1 12.5v-9a.5.5 0 0 1 .5-.5z"/>
+				</svg>
+				<label for="" class="ms-2">Configurar o modo do tema e a foto de fundo</label>
+			</h6>
+			
+		</header>
+
+		<div class="card_options d-flex justify-content-between">
+
+			 
+
+			<div class="row">
+				<div class="col">
+					<div class="d-flex align-items-center" >
+						<!-- <div onclick="checkBtn(this), applyTheme()" class="card_btn card_btn_theme mx-1 ">
+							<span class="card_btn_span card_btn_theme_span"></span>
+						</div>
+						<input type="text" id="theme" value="theme-light" style="visibility: hidden; position: absolute; top: 100%;">
+						<label for="">Tema escuro</label> -->
+						<div class="form-check form-switch" onclick="applyThemeMode()">
+							<input class="form-check-input" id="btn-theme-mode-config" type="checkbox" role="switch" id="flexSwitchCheckChecked" 
+						>
+							<label class="form-check-label" for="flexSwitchCheckChecked">Tema escuro</label>
+						</div>
+					</div>
+
+					<div class="d-flex align-items-center">
+						<!-- <div onclick="checkBtn(this), applyBackgroundImage()"  class="card_btn card_btn_bg_image mx-1">
+							<span class="card_btn_span card_btn_bg_image_span"></span>
+						</div>
+						<input type="text" value="bag-image-enable" style="visibility: hidden; position: absolute; top: 100%;">
+						<label for="">Habilitar imagem de fundo</label> -->
+						<div class="form-check form-switch" onclick="applyBackgroundImage()" >
+							<input class="form-check-input" id="btn-bg-config" type="checkbox" role="switch" id="flexSwitchCheckChecked" >
+							<label class="form-check-label" for="flexSwitchCheckChecked">Habilitar imagem de fundo</label>
+						</div>
+					</div>
+
+
+
+					<div class="input-group input-group-sm mt-3">
+
+						{{img_bg_edit}}
+					
+						<div class="input-group input-group-sm mt-3 img_ext in_inputs input_active">
+							<input readonly type="text" class="form-control editField" id="image_bg" placeholder="Selecione o link de uma imagem">
+							<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+							<button class="btn btn-outline-secondary" type="button" onclick="setProfileBackgroundImage(this.parentElement, 'Background')">Salvar</button>
+						</div>
+					</div>
+					
+
+				</div>
+			</div><!--End Row-->
+
+		</div>
+
+	</div><!--End wdg_card-->
+
+	<div class="wdg_card"> <!--Card-->
+		<header class="d-flex justify-content-between"><!--Cabeçalho-->
+			<h6 class="d-flex align-items-center">
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-palette" viewBox="0 0 16 16">
+					<path d="M8 5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3m4 3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3M5.5 7a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m.5 6a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3"/>
+					<path d="M16 8c0 3.15-1.866 2.585-3.567 2.07C11.42 9.763 10.465 9.473 10 10c-.603.683-.475 1.819-.351 2.92C9.826 14.495 9.996 16 8 16a8 8 0 1 1 8-8m-8 7c.611 0 .654-.171.655-.176.078-.146.124-.464.07-1.119-.014-.168-.037-.37-.061-.591-.052-.464-.112-1.005-.118-1.462-.01-.707.083-1.61.704-2.314.369-.417.845-.578 1.272-.618.404-.038.812.026 1.16.104.343.077.702.186 1.025.284l.028.008c.346.105.658.199.953.266.653.148.904.083.991.024C14.717 9.38 15 9.161 15 8a7 7 0 1 0-7 7"/>
+				  </svg>
+				<label for="" class="ms-2">Configurar fonte do texto e cor de destaque</label>
+			</h6>
+			
+		</header>
+
+		<div class="card_options d-flex justify-content-between">
+
+			<head>
+				<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+				<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre&display=swap" rel="stylesheet">
+			</head>
+			
+
+
+
+			<div class="row w-100" style="max-height: 880px;">
+				<div class="col-12 col-md-6 mb-3">
+					<label for="">Fontes de texto</label>
+					<div class="d-flex flex-column align-items-center container-fonts" style="width: 100%; max-height: 400px; overflow-y: auto;">
+						<!-- As fontes serão adicionadas aqui -->
+					</div>
+				</div>
+			
+				<div class="col-12 col-md-6 mb-3">
+					<label for="">Cores</label>
+					<div class="d-flex flex-column align-items-center container-schemes" style="width: 100%; max-height: 400px; overflow-y: auto;">
+						<!-- Os esquemas de cores serão adicionados aqui -->
+					</div>
+				</div>
+			</div>
+			
+			
+
+		</div>
+
+	</div><!--End wdg_card-->
+
+
+</div><!--  -->
+
+<!-- CONFIGURAÇÕES DO ADM -->
+<div class="wdg_content wdg_window wdg_window_50 mb-3 item float-start adm_settings hide_element">
+	<nav class="d-flex justify-content-between align-items-center">
+		<img class="hide_element_visibility" src="/public/images/maximize.svg" width="12px">
+		<h6>CONFIGURAÇÃO DO ADM</h6>
+		<div class="bg-warning p-1 rounded-pill bg-color ">
+
+			<div class="d-flex window_behavior justify-content-end " style="width: 40px !important;">
+
+				<svg class="mx-1 p-1" onclick="rezisize(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-expand-vertical" viewBox="0 0 16 16">
+					<path d="M8 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L1.707 7.5H5.5a.5.5 0 0 1 0 1H1.707l1.147 1.146a.5.5 0 0 1-.708.708zM10 8a.5.5 0 0 1 .5-.5h3.793l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L14.293 8.5H10.5A.5.5 0 0 1 10 8"/>
+				  </svg>
+		
+				<!-- <svg  class="mx-1 p-1" onclick="removeElement(this.parentElement.parentElement.parentElement.parentElement), showNotification('Bloco de Atendimento excluído!', 'bg-danger')" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 15 15">
+				<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"></path>
+				</svg> -->
+		  </div>
+		</div>
+	</nav>
+
+	
+
+	<div class="wdg_card "> <!--Card-->
+		<header class="wdg_card_header d-flex justify-content-between"><!--Cabeçalho-->
+			<!-- <img src="/public/images/more_options.svg" width="25px"> -->
+			<h6>
+				<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+					class="bi bi-plus-circle" viewBox="0 0 16 16">
+					<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+					<path
+						d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+				</svg>
+
+				Credenciais do ADM
+			</h6>
+			<div class="d-flex window_behavior justify-content-end">
+				<svg onclick="HideElement(this.parentElement.parentElement.parentElement)"
+					xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+					class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+					<path fill-rule="evenodd"
+						d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z" />
+				</svg>
+
+				<!-- <svg onclick="removeElement(this.parentElement.parentElement.parentElement)" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+					<path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/>
+				</svg> -->
+			</div>
+		</header>
+
+		<hr>
+
+		<div class="showContent ">
+			<div class="row ">
+				<div class="mb-3">
+					<label for="name" class="form-label">Usuário do ADM</label>
+					<div class="input-group input-group-sm">
+						<input readonly="" type="text" class="form-control editField" id="adm_user" placeholder="Seu usuário" value="{{adm_user}}" pattern="[a-zA-Z0-9]+">
+						<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+						<!-- <button class="btn btn-outline-secondary" type="button" onclick="">Salvar</button> -->
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="name" class="form-label">Nome</label>
+					<div class="input-group input-group-sm">
+						<input readonly="" type="text" class="form-control inputName editField" id="adm_name" placeholder="Seu nome" value="{{adm_name}}" pattern="[a-zA-Z0-9]+">
+						<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+						<!-- <button class="btn btn-outline-secondary" type="button" onclick="">Salvar</button> -->
+					</div>
+				</div>
+				<div class="mb-3">
+					<label for="password" class="form-label">Senha</label>
+					<div class="input-group input-group-sm">
+						<input readonly="" type="password" class="form-control profile_pass editField" id="adm_password" placeholder="Senha" value="{{adm_pass}}" pattern="[a-zA-Z0-9]+">
+						<button class="btn btn-outline-secondary" type="button" onclick="showPassProfile(this.parentElement)">Mostrar</button>
+						<button class="btn btn-outline-secondary" type="button" onclick="enableFieldEditing(this.parentElement)">Editar</button>
+						<!-- <button class="btn btn-outline-secondary" type="button" onclick=" ">Salvar</button> -->
+					</div>
+				</div>
+
+				<div class="mb-3 justify-content-center d-flex">
+					<button class="btn btn-outline-secondary w-50 btn-primary" type="button" onclick="updateAdmCredencials(this)">Salvar</button>
+				</div>
+			</div>
+		 
+		</div>
+	</div><!--End wdg_card-->
+</div>
+
+
+<script src="/public/js/WidgetTextEditView.js"></script>
+<script src="/public/js/app.js"></script>
+<script src="/public/js/Settings.js"></script>

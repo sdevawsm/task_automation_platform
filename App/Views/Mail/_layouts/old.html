@@ -1,0 +1,324 @@
+Agora vamos trabalhar na função php responsável pelo envio dos e-mails. Faremos antes algumas considerações. No meu servidor não tenho como criar jobs, pois não posso executar o comando exec e precisaremos melhorar a lógica de envio de e-mails. 
+
+Ao enviar os destinatátios e e-mails essas informações junto com o conteúdo do e-mail deverão ser armazenados no banco de dados, de forma que, se houver erro no envio possa os e-mails poderão ser enviados posteriormente, pois os e-mails ficarão numa fila e também servirá como controle para que eu possa ver o que foi enviado e por quem foi enviado ou cancelar o envio definitivamente. 
+
+criei um diretório para armazenar o layout que poderá ser importado e utilizado, que por padrão será o mail.default.html para diminuir a quantidade de linhas na função send_styled_mail 
+
+usando como base a função  send_styled_mail() atual faça as alterações para importar o layout passando as variáveis que deverão ser adicionadas no layout, crie as tabelas no banco de dados para salvar as informações e o estado do envio de e-mails e crie uma função javacript que inicia um loop para exibir o status do envio de e-mails  para o usuário final. 
+
+App\Views\Mail\_layouts\
+
+
+para execução das query utilize a função query
+
+public function query($sql, $params = []) {
+            $stmt = $this->pdo->prepare($sql);
+        
+            // Detecta se a query contém placeholders nomeados ou posicionais
+            $isNamedPlaceholders = strpos($sql, ':') !== false;
+        
+            if ($isNamedPlaceholders) {
+                // Bind dos parâmetros nomeados
+                foreach ($params as $key => $value) {
+                    $stmt->bindValue(':' . $key, $value);
+                }
+            } else {
+                // Bind dos parâmetros posicionais
+                foreach ($params as $index => $value) {
+                    $stmt->bindValue($index + 1, $value); // $index + 1 porque os placeholders posicionais começam em 1
+                }
+            }
+        
+            $stmt->execute();
+            return $stmt;
+        }
+
+
+function send_styled_mail() {
+            $recipients = filter_var($_POST['destinatario'], FILTER_SANITIZE_STRING);
+            $ccList = filter_var($_POST['copia'], FILTER_SANITIZE_STRING);
+            $subject = filter_var($_POST['assunto'], FILTER_SANITIZE_STRING);
+            $bodyContent = $_POST['corpo']; // Allow HTML content
+            $attachments = $_FILES['anexos']; // File attachments
+ 
+            // Obter o esquema (http ou https) e o host (domínio ou localhost)
+            $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'];
+            $uri = $protocol . '://' . $host;
+
+            // Inicia a sessão
+            session_start();
+
+            // Verifica se a variável de sessão 'user_id' está definida
+            if (isset($_SESSION['user_id'])) {
+                $user_ = $_SESSION['user_id']; 
+                $name_ = $_SESSION['name'];
+                $email_ = $_SESSION['email'];
+            } else {
+                // Caso contrário, defina um valor padrão ou trate a ausência do 'user_id'
+                $user_ = 29; // ou qualquer outro valor padrão apropriado
+            }
+
+
+            // Recupera o tema ativo do usuário
+            $themeData = $this->getUserThemeData(29);
+            $themeDataUser = $this->getUserThemeData($user_);
+
+            // Gerar HTML das imagens de perfil
+            $profileImageHTML = $this->generateProfileImageHTML($themeData['images']['profile_image'], 'profile-default-img');
+            $profileImageHTMLUser = $this->generateProfileImageHTML($themeDataUser['images']['profile_image'], 'profile-user-img');
+
+            // Corpo do e-mail com estilo CSS e informações do administrador
+            $body = "
+            <!DOCTYPE html>
+<html lang= 'pt-br'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>E-mail</title>
+    <style>
+        /* Estilo geral */
+        .mail {
+            max-width: 900px;
+            background-color: #f8f9fa; /* Fundo claro para neutralidade */
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            font-family: 'Arial', sans-serif; /* Tipografia simples e limpa */
+        }
+
+        /* Conteúdo principal */
+        .mail-content {
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 8px;
+            padding: 20px;
+            min-height: 300px; /* Define altura mínima para evitar que o layout quebre */
+            color: #343a40; /* Texto em cor escura para contraste */
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Cabeçalho do e-mail */
+        .mail-subject {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff; /* Azul para destaque */
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Informações do remetente */
+        .mail-sender {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .mail-sender img {
+            width: 80px; /* Tamanho ajustado para visibilidade */
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 16px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .sender {
+            font-size: 16px;
+            color: #495057;
+        }
+
+        .sender .sender-name {
+            font-weight: bold;
+        }
+
+        /* Cartão de visita do desenvolvedor */
+        .card-profile {
+            background-color: #007bff; /* Azul vibrante para destaque */
+            max-width: 600px;
+            border-radius: 12px;
+            margin: 20px auto;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            color: #ffffff; /* Texto branco para contraste */
+        }
+
+        .card-profile img {
+            width: 100px; /* Destaque no tamanho da imagem */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-profile h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        /* Botões de mídia social */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .btn-social-media {
+            width: 120px;
+            height: 40px;
+            background-color: #ffffff; /* Fundo claro para contraste */
+            color: #007bff;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 2px solid #007bff; /* Bordas para destacar os botões */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn-social-media a {
+            text-decoration: none;
+        }
+
+        .btn-social-media:hover {
+            background-color: #007bff; /* Fundo azul no hover */
+            color: #ffffff; /* Texto branco no hover */
+            border-color: #0056b3; /* Tom mais escuro no hover */
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: #343a40; /* Fundo escuro elegante */
+            color: #f8f9fa;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 0 0 12px 12px;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .mail {
+                padding: 15px;
+            }
+
+            .mail-subject {
+                font-size: 20px;
+            }
+
+            .mail-sender {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .mail-sender img {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+
+            .card-profile {
+                padding: 15px;
+            }
+
+            .btn-social-media {
+                width: 100px;
+                height: 35px;
+            }
+
+
+            .footer {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mail {
+                padding: 10px;
+            }
+
+            .mail-subject {
+                font-size: 18px;
+            }
+
+            .mail-content {
+                padding: 15px;
+            }
+
+            .card-profile {
+                padding: 10px;
+            }
+
+            .footer {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class='mail'>
+        <div class='mail-content'>
+            <h3 class='mail-subject'>$subject</h3>
+            <hr>
+            <div class='mail-sender'>
+                $profileImageHTMLUser
+                <div class='sender'>
+                    <label class='sender-name'>$name_</label><br>
+                    <label class='sender-mail'>$email_</label>
+                </div>
+            </div>
+            <hr>
+            <div class='mail-content'>$bodyContent</div>
+        </div>
+        <div class='card-profile'>
+            $profileImageHTML
+            <h3>Dione Silva - Desenvolvedor</h3>
+            <div class='social-media'>
+                <!-- <div class='btn-social-media'>Youtube</div> -->
+                <div class=\"btn-social-media\"><a href=\"https://chat.whatsapp.com/E7LE4uP8jgu18s196tDcKu\" target=\"_blank\">Whatsapp</a></div>
+                <!-- <div class='btn-social-media'>Instagram</div> -->
+            </div>
+        </div>
+        <div class='footer'>
+            <h4>© 2025 Silvadevbr. Todos os direitos reservados.</h4>
+        </div>
+    </div>
+</body>
+</html>
+
+            ";
+        
+            // Preparar os anexos
+            $attachmentsData = [];
+
+            // Adicionar a imagem do tema
+            $attachmentsData[] = ['path' => $themeData['images']['profile_image']['path'], 'cid' => 'profile_image'];
+
+            // Processar os arquivos anexados via formulário
+            if (!empty($attachments['name'][0])) { // Verifica se há arquivos carregados
+                foreach ($attachments['tmp_name'] as $key => $tmp_name) {
+                    if (is_uploaded_file($tmp_name)) {
+                        $attachmentsData[] = [
+                            'path' => $tmp_name,
+                            'name' => $attachments['name'][$key]
+                        ];
+                    }
+                }
+            }
+            
+            $this->sendMailWithAttachments($recipients, $body, $attachmentsData, $subject, $ccList);
+            
+        }
+
+

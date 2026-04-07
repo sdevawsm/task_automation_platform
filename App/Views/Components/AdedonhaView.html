@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Adedonha Game</title>
+  <style>
+    body {
+      background-color: aliceblue;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    select, input, button {
+      margin: 10px 0;
+      padding: 5px;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+
+    #game {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .placar {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- Tela de seleção de adversário -->
+    <div id="partida" v-if="!jogando">
+      <h2>Escolha seu adversário:</h2>
+      <select v-model="jogadorSelecionado">
+        <option disabled value="">Selecione o jogador adversário</option>
+        <option v-for="j in jogadores.users" :value="j.id">{{ j.name }}</option>
+      </select>
+
+      <button @click="iniciarPartida">Iniciar partida</button>
+    </div>
+
+    <!-- Tela do jogo -->
+    <div id="game" v-if="jogando">
+      <h3>Você está jogando contra: {{ nomeAdversario }}</h3>
+
+      <!-- Placar -->
+      <div class="section placar">
+        Placar:<br>
+        Você: {{ pontuacao.voce }}<br>
+        {{ nomeAdversario }}: {{ pontuacao.adversario }}
+      </div>
+
+      <!-- Letra e categoria -->
+      <div class="section">
+        <label for="letra">Letra:</label>
+        <select v-model="letraSelecionada" id="letra">
+          <option v-for="l in letras" :value="l">{{ l }}</option>
+        </select>
+
+        <label for="categoria">Categoria:</label>
+        <select v-model="categoriaSelecionada" id="categoria">
+          <option v-for="c in categorias" :value="c">{{ c }}</option>
+        </select>
+      </div>
+
+      <!-- Palavra -->
+      <div class="section">
+        <input type="text" v-model="palavraDigitada" placeholder="Digite uma palavra...">
+        <button @click="enviarPalavra(palavraDigitada)">Enviar palavra</button>
+      </div>
+
+      <!-- Palavra do adversário -->
+      <div v-if="palavraAdversario" class="section">
+        🕵️ Palavra do adversário: <strong>{{ palavraAdversario }}</strong>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        jogando: false,
+        jogadores: [],
+        jogadorSelecionado: "",
+        pontuacao: {
+          voce: 0,
+          adversario: 0
+        },
+        letras: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+        categorias: ['Fruta', 'Animal', 'Cidade'],
+        letraSelecionada: '',
+        categoriaSelecionada: '',
+        palavraDigitada: '',
+        palavraAdversario: ''
+      },
+      computed: {
+        nomeAdversario() {
+          const jogador = this.jogadores.users?.find(j => j.id === this.jogadorSelecionado);
+          return jogador ? jogador.name : "Desconhecido";
+        }
+      },
+      methods: {
+        iniciarPartida() {
+          if (!this.jogadorSelecionado) {
+            alert("Selecione um jogador primeiro!");
+            return;
+          }
+          this.jogando = true;
+          this.escutarPalavraAdversario();
+        },
+        getPlayers() {
+          fetch('/jogadores')
+            .then(response => {
+              if (!response.ok) throw new Error("Erro ao buscar jogadores");
+              return response.json();
+            })
+            .then(data => {
+              this.jogadores = data;
+            })
+            .catch(error => {
+              console.error("Erro na requisição:", error);
+            });
+        },
+        enviarPalavra(palavra) {
+          if (!palavra || !this.letraSelecionada || !this.categoriaSelecionada) {
+            alert("Preencha todos os campos!");
+            return;
+          }
+
+          fetch('/enviar-palavra', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ palavra })
+          });
+
+          if (palavra.toUpperCase().startsWith(this.letraSelecionada)) {
+            this.pontuacao.voce += 10;
+            alert(`✅ Palavra aceita! Você ganhou 10 pontos.`);
+          } else {
+            alert(`❌ A palavra não começa com a letra ${this.letraSelecionada}.`);
+          }
+
+          this.palavraDigitada = "";
+        },
+        escutarPalavraAdversario() {
+          fetch('/buscar-palavra')
+            .then(res => res.json())
+            .then(data => {
+              if (data.palavra) {
+                this.palavraAdversario = data.palavra;
+              }
+              setTimeout(() => this.escutarPalavraAdversario(), 3000);
+            })
+            .catch(() => {
+              setTimeout(() => this.escutarPalavraAdversario(), 3000);
+            });
+        }
+      },
+      created() {
+        this.getPlayers();
+      }
+    });
+  </script>
+</body>
+</html>

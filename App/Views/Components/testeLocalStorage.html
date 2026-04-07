@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Configurações</title>
+</head>
+<body>
+    <label for="theme">Escolha o tema:</label>
+    <select id="theme">
+        <option value="light">Claro</option>
+        <option value="dark">Escuro</option>
+    </select>
+    <button onclick="salvarTema()">Salvar</button>
+
+    <script>
+        function salvarTema() {
+            const temaSelecionado = document.getElementById("theme").value;
+            localStorage.setItem("tema", temaSelecionado);
+        }
+
+        // Recupere o tema ao carregar a página
+        const temaSalvo = localStorage.getItem("tema");
+        if (temaSalvo) {
+            aplicarTema(temaSalvo);
+        }
+
+        // Adicione o ouvinte de evento para atualizar o tema em outras guias/janelas
+        window.addEventListener("storage", function(event) {
+            if (event.key === "tema") {
+                aplicarTema(event.newValue);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+// _borders.scss
+
+// Cores temáticas (você pode importar de outro arquivo)
+$theme-colors: (
+  primary: #0d6efd,
+  secondary: #6c757d,
+  success: #198754,
+  danger: #dc3545,
+  warning: #ffc107,
+  info: #0dcaf0,
+  light: #f8f9fa,
+  dark: #212529
+);
+
+// Bordas completas e por lado
+$border-sides: (
+  "": "",
+  "top": "-top",
+  "end": "-right",  // Bootstrap usa "end" para RTL
+  "bottom": "-bottom",
+  "start": "-left"
+);
+
+@each $side, $suffix in $border-sides {
+  .border#{$suffix} {
+    border#{$suffix}: 1px solid #dee2e6;
+  }
+
+  .border#{$suffix}-0 {
+    border#{$suffix}: 0;
+  }
+}
+
+// Cores de borda
+@each $name, $color in $theme-colors {
+  .border-#{$name} {
+    border-color: #{$color} !important;
+  }
+}
+
+// Arredondamento
+.rounded {
+  border-radius: 0.25rem;
+}
+.rounded-0 {
+  border-radius: 0;
+}
+.rounded-top {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+.rounded-end {
+  border-top-right-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.rounded-bottom {
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+.rounded-start {
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+.rounded-circle {
+  border-radius: 50%;
+}
+.rounded-pill {
+  border-radius: 50rem;
+}

@@ -1,0 +1,82 @@
+ 
+    <title>Nova senha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@material/material-components-web@latest/dist/material-components-web.min.css">
+ <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+        }
+        .cont-acc {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .show-error {
+            color: #f35656;
+        }
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-primary {
+            background-color: #6200ea;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+        }
+        .link_for_login {
+            color: #6200ea;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            margin-top: 16px;
+        }
+    </style>
+ 
+    <div class="container">
+        <div class="row g-3 cont-acc">
+            <h3 for="email" class="mdc-typography--headline6">Cadastre a nova senha</h3>
+            <span class="show-error"></span>
+            
+            <div class="col-12">
+                <label for="pass" class="visually-hidden">Digite a nova senha</label>
+                <input type="password" class="form-control" id="pass" placeholder="Senha"><br>
+                <label for="newpass" class="visually-hidden">Repita a nova senha</label>
+                <input type="password" class="form-control" id="newpass" placeholder="Nova senha">
+            </div>
+            
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary mb-3" onclick="setNewPass(event)">Aplicar</button>
+            </div>
+            
+            <label for="login-link">
+                <a href="/login" class="hide_element link_for_login">Clique aqui para logar</a>
+            </label>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@material/material-components-web@latest/dist/material-components-web.min.js"></script>
+ 
+
+
+
+

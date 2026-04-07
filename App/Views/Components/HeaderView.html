@@ -1,0 +1,86 @@
+<header class="p-2 mb-3 border-bottom bg-dark white bg-color-primary" style="left: -19px !important; position: sticky; width: 103%; z-index: 1000;">
+    <div class="container-fluid">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" >
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none orbitron-header text-logo-color">
+          <!-- <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg> -->
+		   Scripts Generator
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/home" class="nav-link px-2 link-body-emphasis">Página principal</a></li>
+          <!-- <li><a href="/changelog" target="_blank" class="nav-link px-2 link-body-emphasis">Novidades</a></li>-->
+          <li><a href="/public/tools-doc-sdev.pdf" target="_blank" class="nav-link px-2 link-body-emphasis">Documentação</a></li>
+		  <li><a href="/verprot" target="_blank" class="nav-link px-2 link-body-emphasis">Verificação de protocolos</a></li>
+		  <li><a href="/public/tview.html" target="_blank" class="nav-link px-2 link-body-emphasis">Editor de HTML</a></li>
+		  <!--<li><a href="/relatorio" target="_blank" class="nav-link px-2 link-body-emphasis">Prot. Pendentes</a></li> -->
+          <!-- <li><a href="#" class="nav-link px-2 link-body-emphasis">Products</a></li> -->
+		 <!-- <li><a href="/adedonha" target="_blank" class="nav-link px-2 link-body-emphasis">Adedonha ??</a></li>-->
+        </ul>
+
+
+        <div class="dropdown text-end">
+          <a style="transform: translate(-25px, 0);"
+		  href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="{{photo_profile}}" alt="mdo" width="32" height="32" class="rounded-circle">
+          </a>
+          <ul class="dropdown-menu text-small" style="">
+            <li><a class="dropdown-item" target="_blank" href="/home">Nova aba</a></li>
+            <li><a class="dropdown-item" href="/settings">Configurações</a></li>
+			{{report}}
+			{{settings_admin}}
+            <!-- <li><a class="dropdown-item" href="#">Profile</a></li> -->
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/logout">Sair</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+	<div class="container-fluid">
+		<a class="navbar-brand" href="/">Portifólio</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="/home">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/changelog" target="_blank">Changelog</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="/documentation" target="_blank">Documentação</a>
+				</li>
+
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+						data-bs-toggle="dropdown" aria-expanded="false">
+						Usuário
+					</a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						
+						
+						<li><a class="dropdown-item" href="/settings"  target="_blank">Configurações</a></li>
+						<li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="/logout"
+								>Sair</a></li>
+					</ul>
+				</li>
+			</ul>
+			<form class="d-flex" action="https://ncc.drozbase.com/search?" method="GET" target="_blank">
+				<input class="form-control me-2" type="search" placeholder="Pesquisar na documentação" aria-label="Search"
+					name="query">
+				<button class="btn btn-outline-success" type="submit">Pesquisar</button>
+			</form>
+		</div>
+	</div>
+</nav> -->

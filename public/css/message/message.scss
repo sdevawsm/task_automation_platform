@@ -1,0 +1,9 @@
+//"../../../node_modules/.bin/sass" --watch "../../../public/css/message/message.scss":"../../../public/css/message.css"
+
+//"node_modules/.bin/sass" --watch "public/css/portifolio/portifolio.scss":"public/css/portifolio.css"
+
+@import 'variables';
+
+body{
+    background-color: $bg-color;
+}

@@ -1,0 +1,58 @@
+// _containers.scss
+
+// Breakpoints padrão do Bootstrap
+$grid-breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// Larguras máximas dos containers em cada breakpoint
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// Container base (responsivo)
+.container {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+
+  // Largura máxima por breakpoint
+  @each $breakpoint, $max-width in $container-max-widths {
+    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+      max-width: $max-width;
+    }
+  }
+}
+
+// Container fluido (100% da largura)
+.container-fluid {
+  width: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Containers específicos por breakpoint (ex: .container-md)
+@each $breakpoint, $max-width in $container-max-widths {
+  @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
+    .container-#{$breakpoint} {
+      width: 100%;
+      max-width: $max-width;
+      padding-right: 1rem;
+      padding-left: 1rem;
+      margin-right: auto;
+      margin-left: auto;
+    }
+  }
+}

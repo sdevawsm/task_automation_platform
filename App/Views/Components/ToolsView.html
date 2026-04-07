@@ -1,0 +1,325 @@
+ <!-- Rodapé -->
+  <!--  <div class="fixed-bottom border-top bg-dark text-black d-flex align-items-start justify-content-start" style="height: 50px;">
+
+ <header class="bg-dark p-2">
+    <div class="container d-flex">
+            
+      <div onclick="showModal( defaultPendences() ) " class="tool-item d-flex align-items-center justify-content-center">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-currency-dollar" viewBox="0 0 16 16">
+            <path d="M4 10.781c.148 1.667 1.513 2.85 3.591 3.003V15h1.043v-1.216c2.27-.179 3.678-1.438 3.678-3.3 0-1.59-.947-2.51-2.956-3.028l-.722-.187V3.467c1.122.11 1.879.714 2.07 1.616h1.47c-.166-1.6-1.54-2.748-3.54-2.875V1H7.591v1.233c-1.939.23-3.27 1.472-3.27 3.156 0 1.454.966 2.483 2.661 2.917l.61.162v4.031c-1.149-.17-1.94-.8-2.131-1.718H4zm3.391-3.836c-1.043-.263-1.6-.825-1.6-1.616 0-.944.704-1.641 1.8-1.828v3.495l-.2-.05zm1.591 1.872c1.287.323 1.852.859 1.852 1.769 0 1.097-.826 1.828-2.2 1.939V8.73l.348.086z"/>
+        </svg>
+
+      </div>
+
+
+    </div>
+  </header>
+  </div> -->
+
+
+  <div class="fixed-container">
+    <button id="btnTop" class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Move para o topo" >
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-up" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M8 10a.5.5 0 0 0 .5-.5V3.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 3.707V9.5a.5.5 0 0 0 .5.5m-7 2.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5"/>
+      </svg>
+    </button>
+
+    <button id="btnLockScroll" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Bloqueia a rolagem da página">
+       🔓
+    </button>
+
+    <button id="btnHideNavFooter" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Esconde a barra inferior no rodapé da página">
+      <!-- Ícone de apagar menu -->
+      🙉
+    </button>
+
+
+    <button id="toggle-drag" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Esconde a barra inferior no rodapé da página">
+      <!-- Ícone de apagar desabilitar arrastar -->
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-grip-vertical" viewBox="0 0 16 16">
+        <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0m3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+      </svg>
+
+    </button>
+
+    <button  onclick="document.querySelector('.block-container').classList.toggle('hide_element')" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Esconde a barra inferior no rodapé da página">
+      <!-- Ícone de esconder conteiner -->
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-slash" viewBox="0 0 16 16">
+        <path d="M13.359 11.238C15.06 9.72 16 8 16 8s-3-5.5-8-5.5a7 7 0 0 0-2.79.588l.77.771A6 6 0 0 1 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755q-.247.248-.517.486z"/>
+        <path d="M11.297 9.176a3.5 3.5 0 0 0-4.474-4.474l.823.823a2.5 2.5 0 0 1 2.829 2.829zm-2.943 1.299.822.822a3.5 3.5 0 0 1-4.474-4.474l.823.823a2.5 2.5 0 0 0 2.829 2.829"/>
+        <path d="M3.35 5.47q-.27.24-.518.487A13 13 0 0 0 1.172 8l.195.288c.335.48.83 1.12 1.465 1.755C4.121 11.332 5.881 12.5 8 12.5c.716 0 1.39-.133 2.02-.36l.77.772A7 7 0 0 1 8 13.5C3 13.5 0 8 0 8s.939-1.721 2.641-3.238l.708.709zm10.296 8.884-12-12 .708-.708 12 12z"/>
+      </svg>
+
+    </button>
+
+
+    <button id="btnBottom" onclick class="btn btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Move para o final">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5M8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6"/>
+      </svg>
+    </button>
+
+  </div>
+
+
+
+ 
+
+  <style>
+    .fixed-container {
+      position: fixed;
+      top: 50%;
+      left: 0;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      transform: translate(0, -50%);
+
+      width: 20px;
+    }
+
+    .fixed-container button{
+      padding: 0;
+    }
+
+    .fixed-container:hover{
+      width: 35px;
+      transition: 0.1s;
+    }
+
+    .fixed-container button:hover{
+      width: 50px;
+      padding: 5px;
+      transition: 0.1s;
+    }
+  </style>
+
+
+ <script>
+    document.getElementById('btnTop').addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    document.getElementById('btnBottom').addEventListener('click', function() {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+
+    document.getElementById('btnHideNavFooter').addEventListener('click', function() {
+      //utilize a classe hide_element para esconder a navegação de menu
+    });
+
+    let scrollLocked = false;
+    document.getElementById('btnLockScroll').addEventListener('click', function() {
+      if (scrollLocked) {
+        document.body.style.overflow = 'auto';
+        this.textContent = '🔒';
+      } else {
+        document.body.style.overflow = 'hidden';
+        this.textContent = '🔓';
+      }
+      scrollLocked = !scrollLocked;
+    });
+
+    let menuHidden = false;
+    document.getElementById('btnHideNavFooter').addEventListener('click', function() {
+      const navFooter = document.getElementById('nav_footer');
+      if (menuHidden) {
+        navFooter.classList.remove('hide_element');
+        this.textContent = '🙉';
+      } else {
+        navFooter.classList.add('hide_element');
+        this.textContent = '🙈';
+      }
+      menuHidden = !menuHidden;
+    });
+
+  </script>
+
+  
+
+  <div class="fixed-bottom border-top bg-dark text-black d-flex align-items-center justify-content-center bg-color-primary" id="nav_footer" style="height: 60px;">
+    <header class="bg-dark bg-color-primary p-2 w-100">
+      <div class="container d-flex justify-content-center">
+        <div class="d-flex">
+          <!-- Ícone para Página Inicial -->
+          <div onclick="goToHomePage()" class="tool-item d-flex align-items-center justify-content-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+              <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/>
+            </svg>
+          </div>
+
+          <!-- Ícone para Notificações -->
+          <div id="notification-icon" onclick="goToNotifications()" class="tool-item d-flex align-items-center justify-content-center position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16">
+              <path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/>
+            </svg>
+            <span id="notification-count" class="notification-badge">0</span>
+          </div>
+
+
+          <!-- Principal -->
+          <div id="main-icon" onclick="showApps()" class="tool-item main-icon d-flex align-items-center justify-content-center position-relative">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+            </svg>
+
+            
+          </div>
+
+
+  
+          <!-- Ícone para Configurações -->
+          <div onclick="goToSettings()" class="tool-item d-flex align-items-center justify-content-center ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+              <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
+              <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
+            </svg>
+          </div>
+
+          <!-- Ícone para Usuários -->
+          <div onclick="goToUsers()" class="tool-item d-flex align-items-center justify-content-center ">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
+              <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
+            </svg>
+          </div>
+
+
+          <!-- Ícone para Receba -->
+          <div onclick="goToReceba()" class="tool-item d-flex align-items-center justify-content-center position-relative">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box" viewBox="0 0 16 16">
+              <path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5 8 5.961 14.154 3.5zM15 4.239l-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/>
+            </svg>
+
+            <span class="novo" style="max-height: 25px; position: absolute; left: 20px;">Novo</span>
+
+          </div>
+
+
+          <!-- <div onclick="lockScroll(event)" class="tool-item d-flex align-items-center justify-content-center mx-3 scroll-disable">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+              <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2M3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1z"/>
+            </svg>
+          </div>
+        -->
+
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <style>
+    .fixed-bottom {
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+}
+
+
+
+.tool-item {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    transition: 0.3s;
+    border-radius: 4px;
+    margin: 0 8px 0 8px;
+}
+
+.tool-item.main-icon{
+  width: 42px;
+  height: 42px;
+  background-color: rgb(105, 105, 253);
+  border-radius: 50%;;
+
+}
+
+.tool-item:hover{
+  transition: 0.3s;
+  padding: 5px;
+  color: #292929;
+  background-color: white;
+  border-radius: 4px;
+}
+
+.tool-item svg {
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.container-alarms {
+    scrollbar-width: thin;  /* Para Firefox */
+    scrollbar-color: #888 #fff;  /* Para Firefox */
+}
+
+.container-alarms::-webkit-scrollbar {
+    width: 8px;  /* Para Chrome, Safari e Edge */
+}
+
+.container-alarms::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+.container-alarms::-webkit-scrollbar-thumb {
+    background: #888; 
+    border-radius: 10px;
+}
+
+.container-alarms::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+ 
+.notification-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: none; /* Esconder por padrão */
+}
+ 
+ 
+.mark-read-btn {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    /*background-color: #007bff;*/
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mark-read-btn:hover {
+    background-color: #ff0000;
+}
+
+.mark-read-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+
+@media (max-width: 375px) {
+
+}
+
+</style>
+
+ 
+
+  <script src="/public/js/ToolsView.js"></script>
+  <script src="/public/js/WidgetToolsFooter.js"></script>

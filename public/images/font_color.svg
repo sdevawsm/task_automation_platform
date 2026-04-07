@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="18.060081mm"
+   height="23.529587mm"
+   viewBox="0 0 18.060081 23.529587"
+   version="1.1"
+   id="svg5"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false" />
+  <defs
+     id="defs2">
+    <rect
+       x="174.40804"
+       y="836.87146"
+       width="504.03397"
+       height="166.69234"
+       id="rect2496-6" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-65.827859,-223.14004)">
+    <g
+       id="g2573"
+       inkscape:export-filename="font_italic.svg"
+       inkscape:export-xdpi="22.049999"
+       inkscape:export-ydpi="22.049999">
+      <g
+         id="g4492"
+         inkscape:export-filename="font_color.svg"
+         inkscape:export-xdpi="21.1"
+         inkscape:export-ydpi="21.1">
+        <rect
+           style="opacity:0;fill:#b3b3b3;fill-opacity:1;stroke-width:0.23759"
+           id="rect2502-3"
+           width="17.837111"
+           height="23.529587"
+           x="65.939339"
+           y="223.14005"
+           ry="0" />
+        <g
+           id="g4485"
+           transform="translate(-35.449587,-4.9201794)">
+          <rect
+             style="opacity:1;fill:#ddff55;fill-opacity:1;stroke-width:0.201999"
+             id="rect3273"
+             width="18.060076"
+             height="4.5241642"
+             x="101.27744"
+             y="245.15453" />
+          <text
+             xml:space="preserve"
+             transform="matrix(0.26458333,0,0,0.26458333,56.059378,3.6501757)"
+             id="text2494-0"
+             style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;font-family:'Noto Sans';-inkscape-font-specification:'Noto Sans Italic';white-space:pre;shape-inside:url(#rect2496-6);display:inline;opacity:1;fill:#4d4d4d;fill-opacity:1"><tspan
+               x="174.4082"
+               y="924.21911"
+               id="tspan4833"><tspan
+                 style="font-style:normal;-inkscape-font-specification:'Noto Sans'"
+                 id="tspan4831">A</tspan></tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
