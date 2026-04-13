@@ -1,5 +1,10 @@
 # Task Automation Platform
 
+🌐 **Acesse a aplicação em produção:**  
+👉 https://sdev-pro.infinityfreeapp.com
+
+---
+
 Uma plataforma web robusta para automação, gerenciamento de tarefas e colaboração em equipe, construída com PHP, Docker e MariaDB.
 
 ## 📋 Sobre o Projeto
