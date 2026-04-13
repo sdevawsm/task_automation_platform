@@ -37,7 +37,6 @@ Confira abaixo duas imagens de exemplo da interface:
 - **Containerização**: Docker & Docker Compose
 - **Frontend**: JavaScript/Vue.js, Bootstrap 5
 - **API**: RESTful (via Controllers)
-- **WebSocket**: Ratchet para comunicação em tempo real
 - **Email**: PHPMailer para envio de emails
 
 ## 📁 Estrutura do Projeto
@@ -98,7 +97,7 @@ DB_PASSWORD=your_password
 
 # Banco de Dados - Third-party (InfinityFree, etc)
 DB_HOST_THIRD=sql113.infinityfree.com
-DB_NAME_THIRD=sdev_app
+DB_NAME_THIRD=host
 DB_USER_THIRD=username
 DB_PASSWORD_THIRD=password
 
@@ -285,14 +284,6 @@ Configurar em `App/Models/mail.default.php`:
 'password' => 'sua_senha',
 ```
 
-## 🔔 WebSocket
-
-Servidor WebSocket rodando em port `9001` (configurável).
-
-Classes principais:
-- `WebSocketController` - Controlador principal
-- Usa Ratchet para gerenciar conexões
-
 ## 📊 Banco de Dados
 
 MariaDB 11.4.7 com as seguintes características:
@@ -354,30 +345,6 @@ docker-compose exec app chown -R www-data:www-data /var/www/html
 - Monitoramento de segurança
 - Backups regulares
 
-## 📝 Histórico de Segurança
-
-⚠️ **AVISO**: Este repositório teve senhas hardcoded anteriormente.
-As credenciais foram removidas e substituídas por variáveis de ambiente.
-
-Se você clonou antes dessa mudança, veja [Removendo Senhas do Git](#removendo-senhas-do-git).
-
-## 🧹 Removendo Senhas do Git
-
-Se as senhas ainda existem no histórico, use:
-
-```bash
-# Método 1: BFG Repo-Cleaner (recomendado)
-brew install bfg
-echo 'sua_senha_comprometida' > passwords.txt
-bfg --replace-text passwords.txt
-git reflog expire --expire=now --all && git gc --prune=now --aggressive
-
-# Método 2: git filter-branch
-git filter-branch --tree-filter 'find . -type f -name "*.php" -exec sed -i "s/sua_senha/REMOVED/g" {} \;' HEAD~50..HEAD
-
-# Fazer force push (cuidado!)
-git push origin --force --all
-```
 
 ## 📄 Licença
 
